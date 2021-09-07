@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Forum_v1</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/Site.css" />
     <script src="https://use.fontawesome.com/89406ae90f.js"></script>
-
 
     <style>
 
@@ -22,10 +22,7 @@
         }
     </style>
 
-
 </head>
-
-
 
 <body>
     <header>
@@ -34,10 +31,8 @@
 
             <a class="navbar-brand" href="/Home/Index">
 
-
                 <div class="row px-2">
-                    <img src="" width="50" height="50" class="d-inline-block align-self-auto" alt="" loading="lazy">
-
+                    <img src="~/Images/logo1.jpg" width="48" height="30" class="d-inline-block align-self-auto" alt="" loading="lazy">
                 </div>
 
             </a>
@@ -50,18 +45,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                 <div class="nav-item pr-4">
-                    <div class="px-2" style="color: white ; font-size:1.7em;"><b><ins>Forum_v1</ins></b></div>
+                    <div class="px-2" style="color: white ; font-size:1.7em;"><b>Astra Forum</b></div>
                 </div>
 
                 <ul class="navbar-nav ml-auto ">
 
 
                     <li class="nav-item pr-4">
-                        @Html.ActionLink("Домашняя страница", "Index", "Home", routeValues: null, htmlAttributes: new { @style = "color:white;" })
+                        @Html.ActionLink("Домашняя страница", "Index", "Home", routeValues: null, htmlAttributes: new { @style = "color:white; font-weight:bold" })
                     </li>
 
                     <li class="nav-item pr-4">
-                        @Html.ActionLink("Форум", "Index", "Topic", routeValues: null, htmlAttributes: new { @style = "color:white;" })
+                        @Html.ActionLink("Форум", "Index", "Topic", routeValues: null, htmlAttributes: new { @style = "color:white; font-weight:bold" })
                     </li>
 
 
@@ -77,24 +72,18 @@
     </header>
 
 
+    <div class="container-fluid body-content" >
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-
-
-    <div class="container-fluid body-content">
-
-        <div class="container-fluid w-100">
+        <div class="container-fluid pad-0" >
             @RenderBody()
         </div>
 
+    </div>
 
 
-        <div class="container-fluid footer" id="footer">          
+    <div class="container-fluid body-content pt-5">
+
+        <div class="container-fluid footer" id="footer">
 
             <div class="row justify-content-center" style="font-size:1.0em">
 
@@ -107,8 +96,6 @@
         </div>
 
     </div>
-
-
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

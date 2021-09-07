@@ -29,10 +29,10 @@ namespace Forum_v1.Controllers
         }
 
 
-
+        
         public async Task<IActionResult> Index() 
         {
-            return View(await _topicRepo.GetAllAsync());
+            return View(await _topicRepo.GetAllWithIncludeMessagesAsync());
         }
 
 
