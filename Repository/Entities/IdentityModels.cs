@@ -144,19 +144,46 @@ namespace Repository.Entities
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<BanEmail>().HasData( new BanEmail[]
-                {
-                new BanEmail{ Id=1, Email="user@user1"},
-                new BanEmail{ Id=2, Email="user@user2"},
-                new BanEmail{ Id=3, Email="user@user3"}
-                });
+            {
+                new BanEmail{ Id=1, Email="diman@bk.ru"}
+             });
 
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[]
-                {
+            {
                 new IdentityRole{ Id="4", Name="user"},
                 new IdentityRole{ Id="5", Name="admin"}
-                });
+            });
 
 
+            modelBuilder.Entity<ApplicationUser>().HasData( new ApplicationUser[] 
+            {
+                new ApplicationUser{
+                 Id ="6", Email="pilot_mig@bk.ru", DateOfRegistration=DateTime.Now,
+
+                 PasswordHash="AQAAAAEAACcQAAAAELTmZcgKdl+Ye8OYjDlB9UL0T3rh4shvu7rUs0RIHO9l3P0iklFjDyovFXW3TzNjiw==",
+
+                 isBanned=false,
+                 isDelited=false},
+
+
+                 new ApplicationUser{
+                 Id ="7", Email="seroga@bk.ru", DateOfRegistration=DateTime.Now,
+
+                 PasswordHash="AQAAAAEAACcQAAAAEIKR2w0DCbHSRcKJ+8QJWT3hpO0+2lMgz2wKfJL7HeOA3sTuSFjLCIqcl4y+E1qQNg==",
+
+                 isBanned=false,
+                 isDelited=false},
+
+
+                 new ApplicationUser{
+                 Id ="8", Email="diman@bk.ru", DateOfRegistration=DateTime.Now,
+
+                 PasswordHash="AQAAAAEAACcQAAAAECrN6vu9cJrPmHRVyuneUwwtGvDSmbHDiqwJxcpuyF54fBc3cFS4NTalxRp0d+uNqA==",
+
+                 isBanned=false,
+                 isDelited=false}
+
+            });
 
 
             base.OnModelCreating(modelBuilder);

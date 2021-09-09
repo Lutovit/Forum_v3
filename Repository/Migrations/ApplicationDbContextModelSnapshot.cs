@@ -49,13 +49,13 @@ namespace Repository.Migrations
                         new
                         {
                             Id = "4",
-                            ConcurrencyStamp = "421eddeb-a65e-4d12-a1ed-72324ba9a948",
+                            ConcurrencyStamp = "26a96b89-2eab-4a64-8626-e4df8df3fd8c",
                             Name = "user"
                         },
                         new
                         {
                             Id = "5",
-                            ConcurrencyStamp = "71e9d4b0-2fec-41aa-8097-b242e8865dc5",
+                            ConcurrencyStamp = "5a6bf95f-a074-412b-8fb4-0a99445896bb",
                             Name = "admin"
                         });
                 });
@@ -242,6 +242,56 @@ namespace Repository.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "ba5fafb1-26bf-45dc-a325-73ad7c24ba92",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 1, 2, 42, 434, DateTimeKind.Local).AddTicks(9157),
+                            Email = "pilot_mig@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAELTmZcgKdl+Ye8OYjDlB9UL0T3rh4shvu7rUs0RIHO9l3P0iklFjDyovFXW3TzNjiw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "403666ce-4d8a-46d3-a304-d15be2178717",
+                            TwoFactorEnabled = false,
+                            isBanned = false,
+                            isDelited = false
+                        },
+                        new
+                        {
+                            Id = "7",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "4d1a1a31-c972-42e4-97fb-7c15c7cf21ea",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 1, 2, 42, 434, DateTimeKind.Local).AddTicks(9255),
+                            Email = "seroga@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAEIKR2w0DCbHSRcKJ+8QJWT3hpO0+2lMgz2wKfJL7HeOA3sTuSFjLCIqcl4y+E1qQNg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "7ecacdba-1b04-4b6f-b2ec-edef53548588",
+                            TwoFactorEnabled = false,
+                            isBanned = false,
+                            isDelited = false
+                        },
+                        new
+                        {
+                            Id = "8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c43dff26-d598-455e-a3d0-b3eb71b63b9c",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 1, 2, 42, 434, DateTimeKind.Local).AddTicks(9265),
+                            Email = "diman@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAEAACcQAAAAECrN6vu9cJrPmHRVyuneUwwtGvDSmbHDiqwJxcpuyF54fBc3cFS4NTalxRp0d+uNqA==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "f09c5c24-d569-4999-b562-f06d1fef23a1",
+                            TwoFactorEnabled = false,
+                            isBanned = false,
+                            isDelited = false
+                        });
                 });
 
             modelBuilder.Entity("Repository.Entities.BanEmail", b =>
@@ -262,17 +312,7 @@ namespace Repository.Migrations
                         new
                         {
                             Id = 1,
-                            Email = "user@user1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Email = "user@user2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Email = "user@user3"
+                            Email = "diman@bk.ru"
                         });
                 });
 
