@@ -10,8 +10,8 @@ using Repository.Entities;
 namespace Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210906205511_Migrate_1")]
-    partial class Migrate_1
+    [Migration("20210909212905_adding_roles")]
+    partial class adding_roles
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,6 +46,20 @@ namespace Repository.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "4",
+                            ConcurrencyStamp = "421eddeb-a65e-4d12-a1ed-72324ba9a948",
+                            Name = "user"
+                        },
+                        new
+                        {
+                            Id = "5",
+                            ConcurrencyStamp = "71e9d4b0-2fec-41aa-8097-b242e8865dc5",
+                            Name = "admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -245,6 +259,23 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BanEmails");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "user@user1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Email = "user@user2"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Email = "user@user3"
+                        });
                 });
 
             modelBuilder.Entity("Repository.Entities.Message", b =>

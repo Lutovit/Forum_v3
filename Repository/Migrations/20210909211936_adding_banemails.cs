@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Repository.Migrations
 {
-    public partial class Migrate_1 : Migration
+    public partial class adding_banemails : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -225,6 +225,16 @@ namespace Repository.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "BanEmails",
+                columns: new[] { "Id", "Email" },
+                values: new object[] { 1, "user@user1" });
+
+            migrationBuilder.InsertData(
+                table: "BanEmails",
+                columns: new[] { "Id", "Email" },
+                values: new object[] { 2, "user@user2" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

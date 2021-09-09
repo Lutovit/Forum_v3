@@ -22,11 +22,9 @@ namespace Repository.Entities
         public bool isDelited { set; get; }
 
 
-
         public ICollection<Message> UserMessages { set; get; }
 
         public ICollection<Topic> UserTopics { set; get; }
-
 
 
         public ApplicationUser()
@@ -40,7 +38,6 @@ namespace Repository.Entities
             isDelited = false;
         }  
     }
-
 
 
 
@@ -71,7 +68,6 @@ namespace Repository.Entities
 
 
 
-
         public Message()
         {
             Date = DateTime.Now;
@@ -80,7 +76,6 @@ namespace Repository.Entities
             isDelited = false;
         }
     }
-
 
 
 
@@ -121,8 +116,6 @@ namespace Repository.Entities
 
 
 
-
-
     public class BanEmail
     {
         public int Id { set; get; }
@@ -144,7 +137,29 @@ namespace Repository.Entities
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-            //Database.EnsureCreated();  
+            //Database.EnsureDeleted();
+           //Database.EnsureCreated();
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<BanEmail>().HasData( new BanEmail[]
+                {
+                new BanEmail{ Id=1, Email="user@user1"},
+                new BanEmail{ Id=2, Email="user@user2"},
+                new BanEmail{ Id=3, Email="user@user3"}
+                });
+
+            modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[]
+                {
+                new IdentityRole{ Id="4", Name="user"},
+                new IdentityRole{ Id="5", Name="admin"}
+                });
+
+
+
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
