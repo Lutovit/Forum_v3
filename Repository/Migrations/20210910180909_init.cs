@@ -231,8 +231,8 @@ namespace Repository.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "ad376a8f-9eab-4bb9-9fca-30b01540f445", "cf70e25c-3f46-4a36-830e-3c3798e9b3ff", "admin", "ADMIN" },
-                    { "ad376a8f-9zxb-4bb9-9fca-30b01540f173", "d763308d-dcd9-4086-8223-81d8e2430e44", "user", "USER" }
+                    { "ad376a8f-9eab-4bb9-9fca-30b01540f445", "d5705cda-be67-4120-b39b-0ea06ffad2ee", "admin", "ADMIN" },
+                    { "ad376a8f-9zxb-4bb9-9fca-30b01540f173", "d56d8eca-bfeb-48c0-9676-0f00e6a22247", "user", "USER" }
                 });
 
             migrationBuilder.InsertData(
@@ -240,9 +240,9 @@ namespace Repository.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ClientName", "CompanyName", "ConcurrencyStamp", "DateOfRegistration", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "isBanned", "isDelited" },
                 values: new object[,]
                 {
-                    { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "Maxim Malakhov", "MaxFunnyApps", "4686256c-5178-491a-8622-f490d6978c6d", new DateTime(2021, 9, 10, 21, 1, 18, 863, DateTimeKind.Local).AddTicks(7123), "pilot_mig@bk.ru", false, false, null, "PILOT_MIG@BK.RU", "PILOT_MIG@BK.RU", "AQAAAAEAACcQAAAAEHcpnbgQl3HOihwj5LVC3gLpHZ6z/BCbbK6D0AaU4BFjNnLV3m9IHi3w2SCBJGO9qw==", null, false, "", false, "pilot_mig@bk.ru", false, false },
-                    { "a17be9c0-aa65-4af8-bd17-00bd9443e575", 0, "Dima Ivanov", "Dima Constractions", "7a1673f0-8f07-4471-b415-0d8e633e98ce", new DateTime(2021, 9, 10, 21, 1, 18, 869, DateTimeKind.Local).AddTicks(6522), "diman@bk.ru", false, false, null, "DIMAN@BK.RU", "DIMAN@BK.RU", "AQAAAAEAACcQAAAAEBJDcuqN6x6fYqEAanf0i88x+DlA+fUGGkh8v+KidDTrTd9UE4+ERVHSR8ZvtI/trw==", null, false, "", false, "diman@bk.ru", false, false },
-                    { "a16ce9c0-aa65-4af8-bd17-00bd7213e575", 0, "Sergei Butovo", "Sergio Vine Company", "0531ea79-5382-4d04-95c4-7150daa4f0e4", new DateTime(2021, 9, 10, 21, 1, 18, 875, DateTimeKind.Local).AddTicks(6080), "sergio@bk.ru", false, false, null, "SERGIO@BK.RU", "SERGIO@BK.RU", "AQAAAAEAACcQAAAAEMXbQvsnZno2jrh7drjCiQOOnTaqsnG87MlrCjUrGjafsT7ocl3gSS/DjGBz9H0gBg==", null, false, "", false, "sergio@bk.ru", false, false }
+                    { "a18be9c0-aa65-4af8-bd17-00bd9344e575", 0, "Maxim Malakhov", "MaxFunnyApps", "dc722044-feea-443c-9f28-42f7494a5fa8", new DateTime(2021, 9, 10, 21, 9, 9, 47, DateTimeKind.Local).AddTicks(8094), "pilot_mig@bk.ru", false, false, null, "PILOT_MIG@BK.RU", "PILOT_MIG@BK.RU", "AQAAAAEAACcQAAAAEDWjo/00D/qhoDWCWAT6oAoe/1gdo/Damvq6LhdEK+HiyCQh6WAqgZmRFd6AOGaP0g==", null, false, "", false, "pilot_mig@bk.ru", false, false },
+                    { "a17be9c0-aa65-4af8-bd17-00bd9443e575", 0, "Dima Ivanov", "Dima Constractions", "e18bc97d-8ddd-4f7d-a3ae-42e004a4e6c8", new DateTime(2021, 9, 10, 21, 9, 9, 53, DateTimeKind.Local).AddTicks(7479), "diman@bk.ru", false, false, null, "DIMAN@BK.RU", "DIMAN@BK.RU", "AQAAAAEAACcQAAAAEKLA/RxfSbNVKB6oxkp+4Et3FhpIsLsXnb2dVXORg566xbmHBrOGhW6AXHaIhXZ16Q==", null, false, "", false, "diman@bk.ru", true, false },
+                    { "a16ce9c0-aa65-4af8-bd17-00bd7213e575", 0, "Sergei Butovo", "Sergio Vine Company", "ab9615e3-7361-40d4-a98d-513c69075972", new DateTime(2021, 9, 10, 21, 9, 9, 59, DateTimeKind.Local).AddTicks(7283), "sergio@bk.ru", false, false, null, "SERGIO@BK.RU", "SERGIO@BK.RU", "AQAAAAEAACcQAAAAEOqvcvdsE9jTk9D7W05Nf+RJ3d4558witl48YThZLjH1nZNWvHjnD4CqrrW/RIhIpg==", null, false, "", false, "sergio@bk.ru", false, false }
                 });
 
             migrationBuilder.InsertData(

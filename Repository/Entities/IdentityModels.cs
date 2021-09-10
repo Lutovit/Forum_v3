@@ -196,7 +196,7 @@ namespace Repository.Entities
                     ClientName="Dima Ivanov",
                     CompanyName="Dima Constractions",
                     DateOfRegistration=DateTime.Now,
-                    isBanned=false,
+                    isBanned=true,
                     isDelited=false
                 },
 
@@ -240,6 +240,10 @@ namespace Repository.Entities
                     UserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575"
                 }
             });
+
+
+
+
 
 
 
