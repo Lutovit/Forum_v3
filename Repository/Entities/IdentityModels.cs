@@ -243,9 +243,129 @@ namespace Repository.Entities
 
 
 
+            modelBuilder.Entity<Topic>().HasData(new Topic[]
+            {
+                new Topic
+                { 
+                     ApplicationUserId="a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                     Date=DateTime.Now, Id=1, isDelited=false, isEdited=false,
+                     TopicName="Star ships, interstellars comunications, gelium atomic engines.",
+                     TopicDescription="Discussing star ships, their engines and something like this."
+                },
+
+                new Topic
+                {
+                     ApplicationUserId="a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                     Date=DateTime.Now, Id=2, isDelited=false, isEdited=false,
+                     TopicName="Vine and sigaretes while you are in deep space.",
+                     TopicDescription="Discussing we spend time during interstellar voyages."
+                },
+
+                new Topic
+                {
+                     ApplicationUserId="a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                     Date=DateTime.Now, Id=3, isDelited=false, isEdited=false,
+                     TopicName="Sports in space.",
+                     TopicDescription="How we do sport, while we are in space."
+                }
+            });
 
 
 
+
+            modelBuilder.Entity<Message>().HasData(new Message[]
+            {
+                new Message
+                {  Id=1, TopicId=1, ApplicationUserId="a18be9c0-aa65-4af8-bd17-00bd9344e575", 
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="pilot_mig@bk.ru", 
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                },
+
+                new Message
+                {  Id=2, TopicId=1, ApplicationUserId="a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="pilot_mig@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                },
+
+                new Message
+                {  Id=3, TopicId=1, ApplicationUserId="a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="pilot_mig@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                }
+            });
+
+
+
+            modelBuilder.Entity<Message>().HasData(new Message[]
+            {
+                new Message
+                {  Id=4, TopicId=2, ApplicationUserId="a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="diman@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                },
+
+                new Message
+                {  Id=5, TopicId=2, ApplicationUserId="a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="diman@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                },
+
+                new Message
+                {  Id=6, TopicId=2, ApplicationUserId="a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="diman@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                }
+             });
+
+
+
+            modelBuilder.Entity<Message>().HasData(new Message[]
+            {
+                new Message
+                {  Id=7, TopicId=3, ApplicationUserId="a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="sergio@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                },
+
+                new Message
+                {  Id=8, TopicId=3, ApplicationUserId="a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="sergio@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                },
+
+                new Message
+                {  Id=9, TopicId=3, ApplicationUserId="a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                   Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
+                   UserName="sergio@bk.ru",
+                   Text="Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem." +
+                   " Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, " +
+                   "in putant fuisset honestatis qui."
+                }
+             });
 
 
             base.OnModelCreating(modelBuilder);
