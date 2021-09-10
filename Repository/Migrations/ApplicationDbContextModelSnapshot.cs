@@ -48,15 +48,17 @@ namespace Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4",
-                            ConcurrencyStamp = "26a96b89-2eab-4a64-8626-e4df8df3fd8c",
-                            Name = "user"
+                            Id = "ad376a8f-9eab-4bb9-9fca-30b01540f445",
+                            ConcurrencyStamp = "cf70e25c-3f46-4a36-830e-3c3798e9b3ff",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
                         },
                         new
                         {
-                            Id = "5",
-                            ConcurrencyStamp = "5a6bf95f-a074-412b-8fb4-0a99445896bb",
-                            Name = "admin"
+                            Id = "ad376a8f-9zxb-4bb9-9fca-30b01540f173",
+                            ConcurrencyStamp = "d763308d-dcd9-4086-8223-81d8e2430e44",
+                            Name = "user",
+                            NormalizedName = "USER"
                         });
                 });
 
@@ -143,6 +145,23 @@ namespace Repository.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            RoleId = "ad376a8f-9eab-4bb9-9fca-30b01540f445"
+                        },
+                        new
+                        {
+                            UserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            RoleId = "ad376a8f-9zxb-4bb9-9fca-30b01540f173"
+                        },
+                        new
+                        {
+                            UserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            RoleId = "ad376a8f-9zxb-4bb9-9fca-30b01540f173"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -246,49 +265,64 @@ namespace Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "6",
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ba5fafb1-26bf-45dc-a325-73ad7c24ba92",
-                            DateOfRegistration = new DateTime(2021, 9, 10, 1, 2, 42, 434, DateTimeKind.Local).AddTicks(9157),
+                            ClientName = "Maxim Malakhov",
+                            CompanyName = "MaxFunnyApps",
+                            ConcurrencyStamp = "4686256c-5178-491a-8622-f490d6978c6d",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 21, 1, 18, 863, DateTimeKind.Local).AddTicks(7123),
                             Email = "pilot_mig@bk.ru",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAELTmZcgKdl+Ye8OYjDlB9UL0T3rh4shvu7rUs0RIHO9l3P0iklFjDyovFXW3TzNjiw==",
+                            NormalizedEmail = "PILOT_MIG@BK.RU",
+                            NormalizedUserName = "PILOT_MIG@BK.RU",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHcpnbgQl3HOihwj5LVC3gLpHZ6z/BCbbK6D0AaU4BFjNnLV3m9IHi3w2SCBJGO9qw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "403666ce-4d8a-46d3-a304-d15be2178717",
+                            SecurityStamp = "",
                             TwoFactorEnabled = false,
+                            UserName = "pilot_mig@bk.ru",
                             isBanned = false,
                             isDelited = false
                         },
                         new
                         {
-                            Id = "7",
+                            Id = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4d1a1a31-c972-42e4-97fb-7c15c7cf21ea",
-                            DateOfRegistration = new DateTime(2021, 9, 10, 1, 2, 42, 434, DateTimeKind.Local).AddTicks(9255),
-                            Email = "seroga@bk.ru",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEIKR2w0DCbHSRcKJ+8QJWT3hpO0+2lMgz2wKfJL7HeOA3sTuSFjLCIqcl4y+E1qQNg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "7ecacdba-1b04-4b6f-b2ec-edef53548588",
-                            TwoFactorEnabled = false,
-                            isBanned = false,
-                            isDelited = false
-                        },
-                        new
-                        {
-                            Id = "8",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "c43dff26-d598-455e-a3d0-b3eb71b63b9c",
-                            DateOfRegistration = new DateTime(2021, 9, 10, 1, 2, 42, 434, DateTimeKind.Local).AddTicks(9265),
+                            ClientName = "Dima Ivanov",
+                            CompanyName = "Dima Constractions",
+                            ConcurrencyStamp = "7a1673f0-8f07-4471-b415-0d8e633e98ce",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 21, 1, 18, 869, DateTimeKind.Local).AddTicks(6522),
                             Email = "diman@bk.ru",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAECrN6vu9cJrPmHRVyuneUwwtGvDSmbHDiqwJxcpuyF54fBc3cFS4NTalxRp0d+uNqA==",
+                            NormalizedEmail = "DIMAN@BK.RU",
+                            NormalizedUserName = "DIMAN@BK.RU",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBJDcuqN6x6fYqEAanf0i88x+DlA+fUGGkh8v+KidDTrTd9UE4+ERVHSR8ZvtI/trw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f09c5c24-d569-4999-b562-f06d1fef23a1",
+                            SecurityStamp = "",
                             TwoFactorEnabled = false,
+                            UserName = "diman@bk.ru",
+                            isBanned = false,
+                            isDelited = false
+                        },
+                        new
+                        {
+                            Id = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            AccessFailedCount = 0,
+                            ClientName = "Sergei Butovo",
+                            CompanyName = "Sergio Vine Company",
+                            ConcurrencyStamp = "0531ea79-5382-4d04-95c4-7150daa4f0e4",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 21, 1, 18, 875, DateTimeKind.Local).AddTicks(6080),
+                            Email = "sergio@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SERGIO@BK.RU",
+                            NormalizedUserName = "SERGIO@BK.RU",
+                            PasswordHash = "AQAAAAEAACcQAAAAEMXbQvsnZno2jrh7drjCiQOOnTaqsnG87MlrCjUrGjafsT7ocl3gSS/DjGBz9H0gBg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "sergio@bk.ru",
                             isBanned = false,
                             isDelited = false
                         });

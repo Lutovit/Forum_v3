@@ -135,55 +135,113 @@ namespace Repository.Entities
         public DbSet<Message> Messages { set; get; }
 
 
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
             //Database.EnsureDeleted();
            //Database.EnsureCreated();
         }
 
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<BanEmail>().HasData( new BanEmail[]
             {
                 new BanEmail{ Id=1, Email="diman@bk.ru"}
              });
 
+
+
             modelBuilder.Entity<IdentityRole>().HasData(new IdentityRole[]
-            {
-                new IdentityRole{ Id="4", Name="user"},
-                new IdentityRole{ Id="5", Name="admin"}
+            {                
+                new IdentityRole{ Id="ad376a8f-9eab-4bb9-9fca-30b01540f445", Name="admin", NormalizedName="ADMIN"},
+                new IdentityRole{ Id="ad376a8f-9zxb-4bb9-9fca-30b01540f173", Name="user", NormalizedName="USER"}
             });
 
 
-            modelBuilder.Entity<ApplicationUser>().HasData( new ApplicationUser[] 
+
+            var hasher = new PasswordHasher<IdentityUser>();
+            modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser[]
             {
-                new ApplicationUser{
-                 Id ="6", Email="pilot_mig@bk.ru", DateOfRegistration=DateTime.Now,
+                new ApplicationUser 
+                {
+                    Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                    UserName = "pilot_mig@bk.ru",
+                    NormalizedUserName = "PILOT_MIG@BK.RU",
+                    Email = "pilot_mig@bk.ru",
+                    NormalizedEmail = "PILOT_MIG@BK.RU",
+                    EmailConfirmed = false,
+                    PasswordHash = hasher.HashPassword(null, "Aa_123456"),
+                    SecurityStamp = string.Empty,
+                    ClientName="Maxim Malakhov",
+                    CompanyName="MaxFunnyApps",
+                    DateOfRegistration=DateTime.Now,
+                    isBanned=false,
+                    isDelited=false
+                },
 
-                 PasswordHash="AQAAAAEAACcQAAAAELTmZcgKdl+Ye8OYjDlB9UL0T3rh4shvu7rUs0RIHO9l3P0iklFjDyovFXW3TzNjiw==",
+                new ApplicationUser
+                {
+                    Id = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                    UserName = "diman@bk.ru",
+                    NormalizedUserName = "DIMAN@BK.RU",
+                    Email = "diman@bk.ru",
+                    NormalizedEmail = "DIMAN@BK.RU",
+                    EmailConfirmed = false,
+                    PasswordHash = hasher.HashPassword(null, "Aa_123456"),
+                    SecurityStamp = string.Empty,
+                    ClientName="Dima Ivanov",
+                    CompanyName="Dima Constractions",
+                    DateOfRegistration=DateTime.Now,
+                    isBanned=false,
+                    isDelited=false
+                },
 
-                 isBanned=false,
-                 isDelited=false},
-
-
-                 new ApplicationUser{
-                 Id ="7", Email="seroga@bk.ru", DateOfRegistration=DateTime.Now,
-
-                 PasswordHash="AQAAAAEAACcQAAAAEIKR2w0DCbHSRcKJ+8QJWT3hpO0+2lMgz2wKfJL7HeOA3sTuSFjLCIqcl4y+E1qQNg==",
-
-                 isBanned=false,
-                 isDelited=false},
-
-
-                 new ApplicationUser{
-                 Id ="8", Email="diman@bk.ru", DateOfRegistration=DateTime.Now,
-
-                 PasswordHash="AQAAAAEAACcQAAAAECrN6vu9cJrPmHRVyuneUwwtGvDSmbHDiqwJxcpuyF54fBc3cFS4NTalxRp0d+uNqA==",
-
-                 isBanned=false,
-                 isDelited=false}
-
+                new ApplicationUser
+                {
+                    Id = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                    UserName = "sergio@bk.ru",
+                    NormalizedUserName = "SERGIO@BK.RU",
+                    Email = "sergio@bk.ru",
+                    NormalizedEmail = "SERGIO@BK.RU",
+                    EmailConfirmed = false,
+                    PasswordHash = hasher.HashPassword(null, "Aa_123456"),
+                    SecurityStamp = string.Empty,
+                    ClientName="Sergei Butovo",
+                    CompanyName="Sergio Vine Company",
+                    DateOfRegistration=DateTime.Now,
+                    isBanned=false,
+                    isDelited=false
+                }
             });
+
+
+
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>[]
+            {
+                new IdentityUserRole<string>
+                {
+                    RoleId = "ad376a8f-9eab-4bb9-9fca-30b01540f445",
+                    UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575"
+                },
+
+                new IdentityUserRole<string>
+                {
+                    RoleId = "ad376a8f-9zxb-4bb9-9fca-30b01540f173",
+                    UserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575"
+                },
+
+                new IdentityUserRole<string>
+                {
+                    RoleId = "ad376a8f-9zxb-4bb9-9fca-30b01540f173",
+                    UserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575"
+                }
+            });
+
+
 
 
             base.OnModelCreating(modelBuilder);
