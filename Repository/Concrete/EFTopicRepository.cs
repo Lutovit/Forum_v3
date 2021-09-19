@@ -30,7 +30,7 @@ namespace Repository.Concrete
 
         public async Task<IEnumerable<Topic>> GetAllWithIncludeMessagesAsync()
         {
-            return await _context.Topics.Include(c=>c.TopicMessages).Include(m=>m.User).ToListAsync();
+            return await _context.Topics.Include(m=>m.User).Include(c => c.TopicMessages).ThenInclude(t=>t.User).ToListAsync();
         }
 
 
@@ -53,7 +53,7 @@ namespace Repository.Concrete
 
         public async Task<Topic> FindByIdWithIncludeMessagesAsync(int id)
         {
-            return await _context.Topics.Include(c=>c.TopicMessages).Include(m=>m.User).FirstOrDefaultAsync(c=>c.Id==id);
+            return await _context.Topics.Include(m => m.User).Include(c => c.TopicMessages).ThenInclude(t => t.User).FirstOrDefaultAsync(c=>c.Id==id);
         }
 
 
