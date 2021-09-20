@@ -50,11 +50,11 @@
             @if (User.Identity.IsAuthenticated && item.User.Email == User.Identity.Name)
             {
 
-                <a href="/Comments/Edit?id=@item.Id" class="my-3 mx-4">
+                <a href="/Topic/EditMessage?id=@item.Id" class="my-3 mx-4">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
 
-                <a href="/Comments/Delete?id=@item.Id" class="my-3 mx-4">
+                <a href="/Topic/DeleteMessage?id=@item.Id" class="my-3 mx-4">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
 

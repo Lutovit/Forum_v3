@@ -117,6 +117,132 @@ namespace Forum_v1.Controllers
 
 
 
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> EditMessage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }            
 
+            Message message = await _messageRepo.FindByIdAsync((int)id);
+
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            ApplicationUser user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            bool isAdmin = false;
+
+            if (user != null)
+            {
+                IList<string> _rolelist = await _userManager.GetRolesAsync(user);
+
+                if (_rolelist.Contains("admin"))
+                {
+                    isAdmin = true;
+                }
+            }
+
+            if (user != null && message.ApplicationUserId != user.Id && isAdmin == false)
+            {
+                return View("YouCanEditOnlyYourMessage");
+            }
+
+            MessageEditViewModel model = new MessageEditViewModel
+            {
+                Id = message.Id,
+                ApplicationUserId = message.ApplicationUserId,
+                DateOfCreate = message.Date.ToString(),
+                ClientName = message.User.ClientName,
+                Text = message.Text
+            };
+
+            return View(model);
+        }
+
+
+
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> EditMessage(MessageEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                Message message = await _messageRepo.FindByIdAsync(model.Id);
+
+                if (message == null)
+                {
+                    return NotFound();
+                }
+
+                message.isEdited = true;
+                message.DateOfLastEdit = DateTime.Now;
+                message.Text = model.Text;
+
+
+                await _messageRepo.UpdateAsync(message);
+
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
+
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<ActionResult> DeleteMessage(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            Message message = await _messageRepo.FindByIdAsync((int)id);
+
+            if (message == null)
+            {
+                return NotFound();
+            }
+
+            ApplicationUser user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            bool isAdmin = false;
+
+            if (user != null)
+            {
+                IList<string> _rolelist = await _userManager.GetRolesAsync(user);
+
+                if (_rolelist.Contains("admin"))
+                {
+                    isAdmin = true;
+                }
+            }
+
+            if (user != null && message.ApplicationUserId != user.Id && isAdmin == false)
+            {
+                return View("YouCanDeleteOnlyYourMessage");
+            }
+
+            return View(message);
+        }
+
+
+
+        [Authorize]
+        [HttpPost, ActionName("DeleteMessage")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteMessageConfirmed(int id)
+        {
+            Message message = await _messageRepo.FindByIdAsync((int)id);
+            await _messageRepo.RemoveAsync(message);
+            
+            return RedirectToAction("Index");
+        }
     }
 }

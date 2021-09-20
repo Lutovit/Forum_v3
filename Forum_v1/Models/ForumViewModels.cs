@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Forum_v1.Models
 {
@@ -11,15 +13,55 @@ namespace Forum_v1.Models
         [Required]
         [Display(Name = "Описание.")]
         public string TopicDescription { set; get; }
+    }
+
+
+     public class MessageCreateViewModel
+    {
+        [Display(Name ="Дата:")]
+        public string Date { set; get; }
+
+        [Display(Name = "Ваше имя:")]
+        public string ClientName { set; get; }
+
+        [Required]
+        [Display(Name = "Ваш отзыв:")]
+        [DataType(DataType.MultilineText)]
+        public string Text { set; get; }
 
     }
 
 
-    public class MessageCreateViewModel
+    public class MessageEditViewModel
     {
+        [HiddenInput(DisplayValue = false)]
+        public int Id { set; get; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string ApplicationUserId { set; get; }
+
+
+        [Display(Name = "Создан:")]
+        public string DateOfCreate { set; get; }
+
+
+        [Display(Name = "Изменен:")]
+        public string DateOflastEdit { set; get; }
+
+
+        [Display(Name = "Ваше имя:")]
+        public string ClientName { set; get; }
+
+
         [Required]
-        [Display(Name = "Сообщение")]
+        [Display(Name = "Ваш отзыв:")]
+        [DataType(DataType.MultilineText)]
         public string Text { set; get; }
+
+        public MessageEditViewModel() 
+        {
+            DateOflastEdit = DateTime.Now.ToString();        
+        }
 
     }
 }
