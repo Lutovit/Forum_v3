@@ -21,8 +21,6 @@ namespace Repository.Concrete
 
 
 
-
-
         public async Task<IEnumerable<Topic>> GetAllAsync()
         {
             return await _context.Topics.ToListAsync();
@@ -35,14 +33,10 @@ namespace Repository.Concrete
 
 
 
-
-
         public IEnumerable<Topic> Get(Func<Topic, bool> predicate)
         {
             return _context.Topics.Where(predicate).ToList();
         }
-
-
 
 
 
@@ -55,11 +49,6 @@ namespace Repository.Concrete
         {
             return await _context.Topics.Include(m => m.User).Include(c => c.TopicMessages).ThenInclude(t => t.User).FirstOrDefaultAsync(c=>c.Id==id);
         }
-
-
-
-
-
 
 
         public async Task CreateAsync(Topic item)

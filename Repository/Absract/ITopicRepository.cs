@@ -16,7 +16,7 @@ namespace Repository.Absract
         IEnumerable<Topic> Get(Func<Topic, bool> predicate);
 
 
-         Task<Topic> FindByIdAsync(int id);
+        Task<Topic> FindByIdAsync(int id);
         Task<Topic> FindByIdWithIncludeMessagesAsync(int id);
 
 

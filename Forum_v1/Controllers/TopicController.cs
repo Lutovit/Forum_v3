@@ -15,13 +15,13 @@ namespace Forum_v1.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ITopicRepository _topicRepo;
-        private readonly IGenericRepository<Message> _messageRepo;
+        private readonly IMessageRepository _messageRepo;
         
 
 
 
 
-        public TopicController(UserManager<ApplicationUser> userManager, ITopicRepository topicRepo, IGenericRepository<Message> messageRepo)
+        public TopicController(UserManager<ApplicationUser> userManager, ITopicRepository topicRepo, IMessageRepository messageRepo)
         {
             _userManager = userManager;
             _topicRepo = topicRepo;
@@ -76,12 +76,46 @@ namespace Forum_v1.Controllers
 
 
 
- 
+     
         public async Task<IActionResult> EnterIntoTopic(int Id) 
         {
+            string email = User.Identity.Name;
+
+            ApplicationUser user = null;
+
+            if (email != null)
+            {
+              user  = await _userManager.FindByEmailAsync(email);
+            }
+            
+            if (user != null)
+            {
+                IList<string> _rolelist = await _userManager.GetRolesAsync(user);
+
+                bool isAdmin = false;
+
+                if (_rolelist.Contains("admin"))
+                {
+                    isAdmin = true;
+                }
+
+                if (isAdmin)
+                {
+                    return RedirectToAction("AdminsTopicsViewing", "Topic", new {topicId = Id});
+                }
+            }
+
             return View(await _topicRepo.FindByIdWithIncludeMessagesAsync(Id));           
         }
 
+
+
+
+        [Authorize(Roles = "admin")]     
+        public async Task<ActionResult> AdminsTopicsViewing(int topicId)
+        {
+            return View(await _topicRepo.FindByIdWithIncludeMessagesAsync(topicId));
+        }
 
 
 
@@ -126,7 +160,7 @@ namespace Forum_v1.Controllers
                 return NotFound();
             }            
 
-            Message message = await _messageRepo.FindByIdAsync((int)id);
+            Message message = await _messageRepo.FindByIdWithIncludeUserAsync((int)id);
 
             if (message == null)
             {
