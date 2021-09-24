@@ -119,6 +119,27 @@ namespace Forum_v1.Controllers
 
 
 
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> CreateNewMessage()
+        {
+            ApplicationUser user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            if (user != null)
+            {
+                MessageCreateViewModel cm = new MessageCreateViewModel
+                {
+                    Date = DateTime.Now.ToString(),
+                    ClientName = user.ClientName
+                };
+
+                return View(cm);
+            }
+
+            return RedirectToAction("Index");     
+        }
+
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> CreateNewMessage(string text, int topicId) 
