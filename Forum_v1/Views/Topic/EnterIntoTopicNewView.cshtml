@@ -1,5 +1,6 @@
 ﻿@model Repository.Entities.Topic
 @using Forum_v1.Models
+@using Forum_v1.Controllers
 
 
 
@@ -92,4 +93,6 @@
 
 
 
-
+<div class="coll mx-3 my-3">
+    @Html.ActionLink("Новая тема", "CreateTopic", "Topic", routeValues: null, htmlAttributes: new { @class = "btn btn-dark" })
+</div>
