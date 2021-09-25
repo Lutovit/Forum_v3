@@ -77,7 +77,7 @@ namespace Forum_v1.Controllers
 
 
      
-        public async Task<IActionResult> EnterIntoTopic(int Id) 
+        public async Task<IActionResult> EnterIntoTopicNewView(int Id) 
         {
             string email = User.Identity.Name;
 
