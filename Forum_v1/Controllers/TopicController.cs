@@ -77,7 +77,7 @@ namespace Forum_v1.Controllers
 
 
      
-        public async Task<IActionResult> EnterIntoTopicNewView(int Id) 
+        public async Task<IActionResult> EnterIntoTopic(int Id) 
         {
             string email = User.Identity.Name;
 
@@ -121,19 +121,20 @@ namespace Forum_v1.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> CreateNewMessage()
+        public async Task<IActionResult> CreateNewMessage(int topicId)
         {
             ApplicationUser user = await _userManager.FindByEmailAsync(User.Identity.Name);
 
             if (user != null)
             {
-                MessageCreateViewModel cm = new MessageCreateViewModel
+                MessageCreateViewModel model = new MessageCreateViewModel
                 {
                     Date = DateTime.Now.ToString(),
-                    ClientName = user.ClientName
+                    ClientName = user.ClientName, 
+                    TopicId=topicId
                 };
 
-                return View(cm);
+                return View(model);
             }
 
             return RedirectToAction("Index");     
@@ -142,7 +143,7 @@ namespace Forum_v1.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> CreateNewMessage(string text, int topicId) 
+        public async Task<IActionResult> CreateNewMessage(MessageCreateViewModel model) 
         {
             ApplicationUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
@@ -151,23 +152,25 @@ namespace Forum_v1.Controllers
                 return RedirectToAction("Index", "Topic");
             }
 
-            if (text == null)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("EnterIntoTopic", "Topic", new { Id = topicId});
+
+                Message mes = new Message()
+                {
+                    TopicId = model.TopicId,
+                    ApplicationUserId = user.Id,
+                    Text = model.Text,
+                    UserName = user.Email
+                };
+
+                await _messageRepo.CreateAsync(mes);
+
+                return RedirectToAction("EnterIntoTopic", "Topic", new { Id = model.TopicId });
             }
-
-            Message mes = new Message()
-            {  
-                TopicId = topicId,
-                ApplicationUserId = user.Id,
-                Text=text,
-                UserName=user.Email
-            };
-
-            await _messageRepo.CreateAsync(mes);
-
-            return RedirectToAction("Index", "Topic");
-
+            else 
+            {
+                return View(model);            
+            }  
         }
 
 
@@ -213,7 +216,8 @@ namespace Forum_v1.Controllers
                 ApplicationUserId = message.ApplicationUserId,
                 DateOfCreate = message.Date.ToString(),
                 ClientName = message.User.ClientName,
-                Text = message.Text
+                Text = message.Text,
+                TopicId=message.TopicId
             };
 
             return View(model);
@@ -242,7 +246,7 @@ namespace Forum_v1.Controllers
 
                 await _messageRepo.UpdateAsync(message);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("EnterIntoTopic", "Topic", new { Id = model.TopicId });
             }
             return View(model);
         }

@@ -25,9 +25,11 @@ namespace Forum_v1.Models
         public string ClientName { set; get; }
 
         [Required]
-        [Display(Name = "Ваш отзыв:")]
+        [Display(Name = "Ваше сообщение:")]
         [DataType(DataType.MultilineText)]
         public string Text { set; get; }
+
+        public int TopicId { set; get; }
 
     }
 
@@ -54,9 +56,11 @@ namespace Forum_v1.Models
 
 
         [Required]
-        [Display(Name = "Ваш отзыв:")]
+        [Display(Name = "Ваше сообщение:")]
         [DataType(DataType.MultilineText)]
         public string Text { set; get; }
+
+        public int TopicId { set; get; }
 
         public MessageEditViewModel() 
         {
