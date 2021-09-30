@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Repository.Entities;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Forum_v1.Models
@@ -68,4 +70,22 @@ namespace Forum_v1.Models
         }
 
     }
+
+
+
+    public class EnterIntoTopicViewModel
+    {
+        public int TopicId { set; get; }
+
+        public PagingInfo PagingInfo { set; get; }
+
+        public IEnumerable<Message> Messages{ set; get; }    
+    }
+
+
+
+
+
+
+
 }

@@ -1,4 +1,5 @@
 ﻿using Forum_v1.Models;
+using Forum_v1.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -16,16 +17,18 @@ namespace Forum_v1.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ITopicRepository _topicRepo;
         private readonly IMessageRepository _messageRepo;
-        
+        private readonly IPagination _paginationService;
 
 
 
 
-        public TopicController(UserManager<ApplicationUser> userManager, ITopicRepository topicRepo, IMessageRepository messageRepo)
+
+        public TopicController(UserManager<ApplicationUser> userManager, ITopicRepository topicRepo, IMessageRepository messageRepo, IPagination paginationService)
         {
             _userManager = userManager;
             _topicRepo = topicRepo;
             _messageRepo = messageRepo;
+            _paginationService = paginationService;
         }
 
 
@@ -77,7 +80,7 @@ namespace Forum_v1.Controllers
 
 
      
-        public async Task<IActionResult> EnterIntoTopic(int Id) 
+        public async Task<IActionResult> EnterIntoTopic(int topic_Id, int page=1) 
         {
             string email = User.Identity.Name;
 
@@ -101,20 +104,20 @@ namespace Forum_v1.Controllers
 
                 if (isAdmin)
                 {
-                    return RedirectToAction("AdminsTopicsViewing", "Topic", new {topicId = Id});
+                    return RedirectToAction("AdminsTopicsViewing", "Topic", new {topicId = topic_Id, _page = page});
                 }
-            }
+            }           
 
-            return View(await _topicRepo.FindByIdWithIncludeMessagesAsync(Id));           
+            return View(await _paginationService.PaginateMessages(topic_Id, page));           
         }
 
 
 
 
         [Authorize(Roles = "admin")]     
-        public async Task<ActionResult> AdminsTopicsViewing(int topicId)
+        public async Task<ActionResult> AdminsTopicsViewing(int topicId, int _page=1)
         {
-            return View(await _topicRepo.FindByIdWithIncludeMessagesAsync(topicId));
+            return View(await _paginationService.PaginateMessages(topicId, _page));
         }
 
 
@@ -165,7 +168,7 @@ namespace Forum_v1.Controllers
 
                 await _messageRepo.CreateAsync(mes);
 
-                return RedirectToAction("EnterIntoTopic", "Topic", new { Id = model.TopicId });
+                return RedirectToAction("EnterIntoTopic", "Topic", new { topic_Id = model.TopicId });
             }
             else 
             {
@@ -246,7 +249,7 @@ namespace Forum_v1.Controllers
 
                 await _messageRepo.UpdateAsync(message);
 
-                return RedirectToAction("EnterIntoTopic", "Topic", new { Id = model.TopicId });
+                return RedirectToAction("EnterIntoTopic", "Topic", new { topic_Id = model.TopicId });
             }
             return View(model);
         }
@@ -299,9 +302,12 @@ namespace Forum_v1.Controllers
         public async Task<ActionResult> DeleteMessageConfirmed(int id)
         {
             Message message = await _messageRepo.FindByIdAsync((int)id);
+
+            int topicId = message.TopicId;
+
             await _messageRepo.RemoveAsync(message);
-            
-            return RedirectToAction("Index");
+
+            return RedirectToAction("EnterIntoTopic", "Topic", new { topic_Id = topicId});
         }
     }
 }

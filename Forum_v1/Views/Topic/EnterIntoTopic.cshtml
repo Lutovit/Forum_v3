@@ -1,14 +1,14 @@
-﻿@model Repository.Entities.Topic
-@using Forum_v1.Models
-@using Forum_v1.Controllers
+﻿@model Forum_v1.Models.EnterIntoTopicViewModel
+@using Forum_v1.HtmlHelpers
 
 
 
-@foreach (var item in Model.TopicMessages)
+
+@foreach (var item in Model.Messages)
 {
     <div class="container-fluid">
         <hr>
-
+        
         <div class="row d-flex justify-content-between">
 
             <div class="col-xs-12 col-md-2 col-lg-2">
@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-xs-12 col-md-1 col-lg-1  p-2">
-                @Html.ActionLink("Сообщение", "CreateNewMessage", "Topic", routeValues: new { topicId = Model.Id },
+                @Html.ActionLink("Сообщение", "CreateNewMessage", "Topic", routeValues: new { topicId = Model.TopicId},
                htmlAttributes: new { @style = "font-size: 1em", @class = "btn btn-dark" })
             </div>
 
@@ -101,5 +101,9 @@
     </div>
 </div>
 
-
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("EnterIntoTopic", new { topic_Id = Model.TopicId, page = x }))
+    </div> 
+</div>
 

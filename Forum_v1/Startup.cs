@@ -55,6 +55,8 @@ namespace Forum_v1
 
             services.AddTransient<AdminConfigService>();
 
+            services.AddTransient<IPagination, PaginationService>();
+
         }
 
 
