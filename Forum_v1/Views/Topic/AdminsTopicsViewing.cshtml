@@ -8,7 +8,7 @@
 {
     <div class="container-fluid">
         <hr>
-        
+
         <div class="row d-flex justify-content-between">
 
             <div class="col-xs-12 col-md-2 col-lg-2">
@@ -48,7 +48,7 @@
 
         <div class="row justify-content-end">
 
-            @if (User.Identity.IsAuthenticated && item.User.Email == User.Identity.Name)
+            @if (User.Identity.IsAuthenticated)
             {
 
                 <a href="/Topic/EditMessage?id=@item.Id&curPage=@Model.PagingInfo.CurrentPage" class="my-3 mx-4">
@@ -60,7 +60,7 @@
                 </a>
 
             }
-            
+
         </div>
         <hr>
     </div>
@@ -85,7 +85,7 @@
             </div>
 
             <div class="col-xs-12 col-md-1 col-lg-1  p-2">
-                @Html.ActionLink("Сообщение", "CreateNewMessage", "Topic", routeValues: new { topicId = Model.TopicId},
+                @Html.ActionLink("Сообщение", "CreateNewMessage", "Topic", routeValues: new { topicId = Model.TopicId },
                htmlAttributes: new { @style = "font-size: 1em", @class = "btn btn-dark" })
             </div>
 
@@ -104,6 +104,6 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         @Html.PageLinks(Model.PagingInfo, x => Url.Action("EnterIntoTopic", new { topic_Id = Model.TopicId, page = x }))
-    </div> 
+    </div>
 </div>
 

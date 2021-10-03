@@ -37,7 +37,7 @@ namespace Forum_v1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews();    
 
             services.AddDbContext<ApplicationDbContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -45,7 +45,7 @@ namespace Forum_v1
 
 
             services.AddScoped<IGenericRepository<BanEmail>, EFGenericRepository<BanEmail>>();
-            services.AddScoped<IGenericRepository<Message>, EFGenericRepository<Message>>();
+            services.AddScoped<IMessageRepository, EFMessageRepository>();
             services.AddScoped<ITopicRepository, EFTopicRepository>();
 
 
@@ -54,6 +54,8 @@ namespace Forum_v1
             services.AddTransient<IAdminConfigService, AdminConfigService>();
 
             services.AddTransient<AdminConfigService>();
+
+            services.AddTransient<IPagination, PaginationService>();
 
         }
 

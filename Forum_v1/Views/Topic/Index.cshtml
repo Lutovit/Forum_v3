@@ -12,7 +12,6 @@
         </div>
 
 
-
         <div class="coll mx-3 my-3">
 
             @using (Html.BeginForm("FindTopicByName", "Topic", FormMethod.Post))
@@ -82,15 +81,16 @@
 
                 <div class="row">
                     <h5 class="mr-3">@i</h5>
-                    <a href="/Topic/EnterIntoTopic?Id=@item.Id">@Html.DisplayFor(modelItem => item.TopicName)</a>
+                    <a href="/Topic/EnterIntoTopic?topic_Id=@item.Id">@Html.DisplayFor(modelItem => item.TopicName)</a>
                 </div>
 
             </div>
 
 
             <div class="col-xs-12 col-md-8 col-lg-4">
-                <a href="/Topic/EnterIntoTopic?Id=@item.Id">@Html.DisplayFor(modelItem => item.TopicDescription)</a>
+                <a href="/Topic/EnterIntoTopic?topic_Id=@item.Id">@Html.DisplayFor(modelItem => item.TopicDescription)</a>
             </div>
+
 
             <div class="col-xs-12 col-md-8 col-lg-4">
                 @Html.DisplayFor(modelItem => item.TopicMessages.Count)

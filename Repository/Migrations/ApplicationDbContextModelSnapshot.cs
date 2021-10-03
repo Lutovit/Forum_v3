@@ -44,6 +44,22 @@ namespace Repository.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "ad376a8f-9eab-4bb9-9fca-30b01540f445",
+                            ConcurrencyStamp = "1b445257-11b9-4c7a-96c4-06cab4434cd2",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "ad376a8f-9zxb-4bb9-9fca-30b01540f173",
+                            ConcurrencyStamp = "9e83c16f-2d77-4745-90bb-dc11b7251da4",
+                            Name = "user",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -129,6 +145,23 @@ namespace Repository.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            RoleId = "ad376a8f-9eab-4bb9-9fca-30b01540f445"
+                        },
+                        new
+                        {
+                            UserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            RoleId = "ad376a8f-9zxb-4bb9-9fca-30b01540f173"
+                        },
+                        new
+                        {
+                            UserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            RoleId = "ad376a8f-9zxb-4bb9-9fca-30b01540f173"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -228,6 +261,71 @@ namespace Repository.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            AccessFailedCount = 0,
+                            ClientName = "Maxim Malakhov",
+                            CompanyName = "MaxFunnyApps",
+                            ConcurrencyStamp = "f94ca394-7513-45fb-b62e-0e526aa4c3fb",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 21, 55, 6, 977, DateTimeKind.Local).AddTicks(9484),
+                            Email = "pilot_mig@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "PILOT_MIG@BK.RU",
+                            NormalizedUserName = "PILOT_MIG@BK.RU",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBBCHNeEcchywffeCEQFGkgvctkMwQvZh+o04JZHpvHx8bEUatxce9i2GZ50/QmTQw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "pilot_mig@bk.ru",
+                            isBanned = false,
+                            isDelited = false
+                        },
+                        new
+                        {
+                            Id = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            AccessFailedCount = 0,
+                            ClientName = "Dima Ivanov",
+                            CompanyName = "Dima Constractions",
+                            ConcurrencyStamp = "eb581bc1-5b2b-48e1-adff-63d7e944b3bb",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 21, 55, 6, 983, DateTimeKind.Local).AddTicks(9934),
+                            Email = "diman@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "DIMAN@BK.RU",
+                            NormalizedUserName = "DIMAN@BK.RU",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGH3cb5f8x3RwT/oAaMOLq+zcaPoq9Ga95jJurfQZn97KS8vAR0Y7JP+0hocP0DW0w==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "diman@bk.ru",
+                            isBanned = true,
+                            isDelited = false
+                        },
+                        new
+                        {
+                            Id = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            AccessFailedCount = 0,
+                            ClientName = "Sergei Butovo",
+                            CompanyName = "Sergio Vine Company",
+                            ConcurrencyStamp = "172ae2c3-3e5d-4fe7-8ebc-c41b4b2766d8",
+                            DateOfRegistration = new DateTime(2021, 9, 10, 21, 55, 6, 989, DateTimeKind.Local).AddTicks(9489),
+                            Email = "sergio@bk.ru",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SERGIO@BK.RU",
+                            NormalizedUserName = "SERGIO@BK.RU",
+                            PasswordHash = "AQAAAAEAACcQAAAAEIIkk+hCCGn8einFTiNc/eusyKzI7sFY8Nb2iyBVVJOss1WmZP6YvCkZ+7JA7+3u5A==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "",
+                            TwoFactorEnabled = false,
+                            UserName = "sergio@bk.ru",
+                            isBanned = false,
+                            isDelited = false
+                        });
                 });
 
             modelBuilder.Entity("Repository.Entities.BanEmail", b =>
@@ -243,6 +341,13 @@ namespace Repository.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BanEmails");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "diman@bk.ru"
+                        });
                 });
 
             modelBuilder.Entity("Repository.Entities.Message", b =>
@@ -283,6 +388,116 @@ namespace Repository.Migrations
                     b.HasIndex("TopicId");
 
                     b.ToTable("Messages");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5127),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5130),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 1,
+                            UserName = "pilot_mig@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5564),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5565),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 1,
+                            UserName = "pilot_mig@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5568),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5569),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 1,
+                            UserName = "pilot_mig@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5714),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5715),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 2,
+                            UserName = "diman@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5719),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5720),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 2,
+                            UserName = "diman@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5723),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5724),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 2,
+                            UserName = "diman@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5750),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5751),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 3,
+                            UserName = "sergio@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5754),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5755),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 3,
+                            UserName = "sergio@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5758),
+                            DateOfLastEdit = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(5759),
+                            Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
+                            TopicId = 3,
+                            UserName = "sergio@bk.ru",
+                            isDelited = false,
+                            isEdited = false
+                        });
                 });
 
             modelBuilder.Entity("Repository.Entities.Topic", b =>
@@ -315,6 +530,38 @@ namespace Repository.Migrations
                     b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Topics");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(2130),
+                            TopicDescription = "Discussing star ships, their engines and something like this.",
+                            TopicName = "Star ships, interstellars comunications, gelium atomic engines.",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(2796),
+                            TopicDescription = "Discussing we spend time during interstellar voyages.",
+                            TopicName = "Vine and sigaretes while you are in deep space.",
+                            isDelited = false,
+                            isEdited = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
+                            Date = new DateTime(2021, 9, 10, 21, 55, 6, 990, DateTimeKind.Local).AddTicks(2799),
+                            TopicDescription = "How we do sport, while we are in space.",
+                            TopicName = "Sports in space.",
+                            isDelited = false,
+                            isEdited = false
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
