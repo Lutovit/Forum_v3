@@ -51,7 +51,7 @@
             @if (User.Identity.IsAuthenticated)
             {
 
-                <a href="/Topic/EditMessage?id=@item.Id" class="my-3 mx-4">
+                <a href="/Topic/EditMessage?id=@item.Id&curPage=@Model.PagingInfo.CurrentPage" class="my-3 mx-4">
                     <i class="fa fa-pencil" aria-hidden="true"></i>
                 </a>
 

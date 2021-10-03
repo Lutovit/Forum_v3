@@ -64,6 +64,8 @@ namespace Forum_v1.Models
 
         public int TopicId { set; get; }
 
+        public int pageNum { set; get; }
+
         public MessageEditViewModel() 
         {
             DateOflastEdit = DateTime.Now.ToString();        

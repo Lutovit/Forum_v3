@@ -180,7 +180,7 @@ namespace Forum_v1.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult> EditMessage(int? id)
+        public async Task<ActionResult> EditMessage(int? id, int curPage)
         {
             if (id == null)
             {
@@ -220,7 +220,8 @@ namespace Forum_v1.Controllers
                 DateOfCreate = message.Date.ToString(),
                 ClientName = message.User.ClientName,
                 Text = message.Text,
-                TopicId=message.TopicId
+                TopicId=message.TopicId, 
+                pageNum=curPage
             };
 
             return View(model);
@@ -249,7 +250,7 @@ namespace Forum_v1.Controllers
 
                 await _messageRepo.UpdateAsync(message);
 
-                return RedirectToAction("EnterIntoTopic", "Topic", new { topic_Id = model.TopicId });
+                return RedirectToAction("EnterIntoTopic", "Topic", new { topic_Id = model.TopicId, page=model.pageNum });
             }
             return View(model);
         }
