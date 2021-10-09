@@ -1,4 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using Repository.Entities;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Forum_v1.Models
 {
@@ -11,15 +15,79 @@ namespace Forum_v1.Models
         [Required]
         [Display(Name = "Описание.")]
         public string TopicDescription { set; get; }
-
     }
 
 
-    public class MessageCreateViewModel
+     public class MessageCreateViewModel
     {
+        [Display(Name ="Дата:")]
+        public string Date { set; get; }
+
+        [Display(Name = "Ваше имя:")]
+        public string ClientName { set; get; }
+
         [Required]
-        [Display(Name = "Сообщение")]
+        [Display(Name = "Ваше сообщение:")]
+        [DataType(DataType.MultilineText)]
         public string Text { set; get; }
 
+        public int TopicId { set; get; }
+
     }
+
+
+    public class MessageEditViewModel
+    {
+        [HiddenInput(DisplayValue = false)]
+        public int Id { set; get; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string ApplicationUserId { set; get; }
+
+
+        [Display(Name = "Создан:")]
+        public string DateOfCreate { set; get; }
+
+
+        [Display(Name = "Изменен:")]
+        public string DateOflastEdit { set; get; }
+
+
+        [Display(Name = "Ваше имя:")]
+        public string ClientName { set; get; }
+
+
+        [Required]
+        [Display(Name = "Ваше сообщение:")]
+        [DataType(DataType.MultilineText)]
+        public string Text { set; get; }
+
+        public int TopicId { set; get; }
+
+        public int pageNum { set; get; }
+
+        public MessageEditViewModel() 
+        {
+            DateOflastEdit = DateTime.Now.ToString();        
+        }
+
+    }
+
+
+
+    public class EnterIntoTopicViewModel
+    {
+        public int TopicId { set; get; }
+
+        public PagingInfo PagingInfo { set; get; }
+
+        public IEnumerable<Message> Messages{ set; get; }    
+    }
+
+
+
+
+
+
+
 }

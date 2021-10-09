@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,6 +18,8 @@ namespace Forum_v1.Models
         [EmailAddress]
         [Display(Name = "Адрес электронной почты:")]
         public string Email { get; set; }
+
+        public byte[] Avatar { get; set; }
     }
 
 
