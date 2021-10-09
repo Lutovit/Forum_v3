@@ -26,6 +26,8 @@ namespace Repository.Entities
 
         public ICollection<Topic> UserTopics { set; get; }
 
+        public byte[] Avatar { get; set; }
+
 
         public ApplicationUser()
         {

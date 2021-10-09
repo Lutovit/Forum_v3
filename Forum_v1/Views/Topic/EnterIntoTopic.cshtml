@@ -12,12 +12,15 @@
         <div class="row d-flex justify-content-between">
 
             <div class="col-xs-12 col-md-2 col-lg-2">
+
                 <p>
                     @if (User.Identity.IsAuthenticated && item.User.Email == User.Identity.Name)
                     {
                         <i class="fa fa-circle" aria-hidden="true" style="color:green"></i>
                     }
+
                     Имя: @Html.DisplayFor(modelItem => item.User.ClientName)
+
                 </p>
 
                 @if (item.isEdited)
@@ -26,6 +29,16 @@
                         <i class="fa fa-circle" aria-hidden="true" style="color:orange"></i>
                         Сообщение изменено: @Html.DisplayFor(modelItem => item.DateOfLastEdit)
                     </p>
+                }
+
+                @if (item.User.Avatar == null)
+                {
+                    <div class="form-control-static">Нет картинки</div>
+                }
+
+                else
+                {
+                    <img style='width:80px; height:60px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(item.User.Avatar))" />
                 }
 
             </div>
