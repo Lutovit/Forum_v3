@@ -62,7 +62,8 @@ namespace Forum_v1.Controllers
                     ModelState.AddModelError(string.Empty, "Объект User  не найден!");
                 }
 
-                Topic topic = new Topic {  TopicName = model.TopicName, TopicDescription = model.TopicDescription, User = user, ApplicationUserId = user.Id };
+                Topic topic = new Topic {  TopicName = model.TopicName, TopicDescription = model.TopicDescription,
+                    User = user, ApplicationUserId = user.Id };
 
                 if (topic == null) 
                 {
@@ -82,35 +83,42 @@ namespace Forum_v1.Controllers
      
         public async Task<IActionResult> EnterIntoTopic(int topic_Id, int page=1) 
         {
-            string email = User.Identity.Name;
-
-            ApplicationUser user = null;
-
-            if (email != null)
+            if (await IsAdmin())
             {
-              user  = await _userManager.FindByEmailAsync(email);
+                return RedirectToAction("AdminsTopicsViewing", "Topic",
+                    new { topicId = topic_Id, _page = page });
             }
-            
-            if (user != null)
+            else 
             {
-                IList<string> _rolelist = await _userManager.GetRolesAsync(user);
-
-                bool isAdmin = false;
-
-                if (_rolelist.Contains("admin"))
-                {
-                    isAdmin = true;
-                }
-
-                if (isAdmin)
-                {
-                    return RedirectToAction("AdminsTopicsViewing", "Topic", new {topicId = topic_Id, _page = page});
-                }
-            }           
-
-            return View(await _paginationService.PaginateMessages(topic_Id, page));           
+                return View(await _paginationService.PaginateMessages(topic_Id, page));
+            }     
         }
 
+        private async Task<bool> IsAdmin() 
+        {
+            string email = User.Identity.Name;            
+
+            if (email == null)
+            {
+                return false;
+            }
+            
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user == null)
+            {
+                return false; 
+            }
+
+            IList<string> _rolelist = await _userManager.GetRolesAsync(user);            
+
+            if (_rolelist.Contains("admin"))
+            {
+                return true;
+            }
+ 
+            return false;
+        }
 
 
 

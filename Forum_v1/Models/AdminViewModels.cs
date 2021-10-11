@@ -22,11 +22,11 @@ namespace Forum_v1.Models
 
 
         [DisplayName("Роли пользователя:")]
-        public IList<string> UserRoleList { set; get; }
+        public List<string> UserRoleList { set; get; }
 
 
         [DisplayName("Доступные роли:")]
-        public IList<string> RoleList { set; get; }
+        public List<string> RoleList { set; get; }
 
 
         public AdminEdit()

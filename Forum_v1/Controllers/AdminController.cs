@@ -66,43 +66,30 @@ namespace Forum_v1.Controllers
 
 
         [Authorize(Roles = "admin")]
-        public async Task<ActionResult> Edit(string Id)
+        public async Task<ActionResult> Edit(string id)
         {
-            ApplicationUser user = await _userManager.FindByIdAsync(Id);
+            ApplicationUser user = await _userManager.FindByIdAsync(id);
 
-            if (user != null)
-            {
-                IList<string> _userrolelist = await _userManager.GetRolesAsync(user);
-
-
-                List<IdentityRole> _appprolelist = _roleManager.Roles.ToList();
-
-
-                IList<string> _availableroles = new List<string>();
-
-                foreach (IdentityRole r in _appprolelist)
-                {
-                    _availableroles.Add(r.Name);
-                }
-
-
-                AdminEdit model = new AdminEdit
-                {
-                    UserName = user.ClientName,
-                    UserEmail = user.Email,
-                    UserRoleList = _userrolelist,
-                    RoleList = _availableroles,
-                    CompanyName = user.CompanyName
-                };
-
-                return View(model);
-            }
-            else
+            if (user == null)
             {
                 ModelState.AddModelError("", "Что-то пошло не так");
+                return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Index");
+            IEnumerable<string> userRoleList = await _userManager.GetRolesAsync(user);         
+
+            IEnumerable<string> availableRoles = _roleManager.Roles.Select(r => r.Name);
+
+            AdminEdit model = new AdminEdit
+            {
+                UserName = user.ClientName,
+                UserEmail = user.Email,
+                UserRoleList = userRoleList.ToList(),
+                RoleList = availableRoles.ToList(),
+                CompanyName = user.CompanyName
+            };
+
+            return View(model);           
 
         }
 
