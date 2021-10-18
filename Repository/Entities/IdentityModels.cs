@@ -68,15 +68,6 @@ namespace Repository.Entities
         public int TopicId { set; get; }
         public Topic Topic { set; get; }
 
-
-
-        public Message()
-        {
-            Date = DateTime.Now;
-            DateOfLastEdit = DateTime.Now;
-            isEdited = false;
-            isDelited = false;
-        }
     }
 
 
@@ -96,6 +87,8 @@ namespace Repository.Entities
 
         public bool isDelited { set; get; }
 
+        public DateTime DateOfLastMessage { set; get; }
+
 
 
         public string ApplicationUserId { set; get; }
@@ -107,10 +100,6 @@ namespace Repository.Entities
 
         public Topic()
         {
-            Date = DateTime.Now;  
-            isEdited = false;
-            isDelited = false;
-
             TopicMessages = new List<Message>();
         }
     }

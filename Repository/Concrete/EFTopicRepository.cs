@@ -28,7 +28,7 @@ namespace Repository.Concrete
 
         public async Task<IEnumerable<Topic>> GetAllWithIncludeMessagesAsync()
         {
-            return await _context.Topics.Include(m=>m.User).Include(c => c.TopicMessages).ThenInclude(t=>t.User).ToListAsync();
+            return await _context.Topics.Include(m=>m.User).Include(c => c.TopicMessages).ThenInclude(t=>t.User).OrderBy(d=>d.DateOfLastMessage).ToListAsync();
         }
 
 

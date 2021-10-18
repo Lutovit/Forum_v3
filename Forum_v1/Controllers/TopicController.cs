@@ -63,7 +63,7 @@ namespace Forum_v1.Controllers
                 }
 
                 Topic topic = new Topic {  TopicName = model.TopicName, TopicDescription = model.TopicDescription,
-                    User = user, ApplicationUserId = user.Id };
+                    User = user, ApplicationUserId = user.Id, Date=DateTime.Now, isDelited=false, isEdited=false };
 
                 if (topic == null) 
                 {
@@ -173,11 +173,16 @@ namespace Forum_v1.Controllers
                 {
                     TopicId = model.TopicId,
                     ApplicationUserId = user.Id,
+                    Date=DateTime.Now, DateOfLastEdit=DateTime.Now, isDelited=false, isEdited=false,
                     Text = model.Text,
                     UserName = user.Email
                 };
 
                 await _messageRepo.CreateAsync(mes);
+
+                Topic topic = await _topicRepo.FindByIdAsync(model.TopicId);
+                topic.DateOfLastMessage = mes.Date;
+                await _topicRepo.UpdateAsync(topic);
 
                 return RedirectToAction("EnterIntoTopic", "Topic", new { topic_Id = model.TopicId });
             }
