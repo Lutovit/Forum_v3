@@ -94,6 +94,9 @@ namespace Forum_v1.Controllers
             }     
         }
 
+
+
+
         private async Task<bool> IsAdmin() 
         {
             string email = User.Identity.Name;            
