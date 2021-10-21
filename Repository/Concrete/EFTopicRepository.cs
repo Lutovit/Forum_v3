@@ -28,7 +28,13 @@ namespace Repository.Concrete
 
         public async Task<IEnumerable<Topic>> GetAllWithIncludeMessagesAsync()
         {
-            return await _context.Topics.Include(m=>m.User).Include(c => c.TopicMessages).ThenInclude(t=>t.User).OrderBy(d=>d.DateOfLastMessage).ToListAsync();
+            return await _context.Topics.Include(m=>m.User).Include(c => c.TopicMessages).ThenInclude(t=>t.User).OrderByDescending(d=>d.DateOfLastMessage).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Topic>> GetAllFromDateWithIncludeMessagesAsync(DateTime dateOflastMessageFrom)
+        {
+            return await _context.Topics.Where(g=>g.DateOfLastMessage>=dateOflastMessageFrom).Include(m => m.User)
+                .Include(c => c.TopicMessages).ThenInclude(t => t.User).OrderByDescending(d => d.DateOfLastMessage).ToListAsync();
         }
 
 
@@ -70,5 +76,6 @@ namespace Repository.Concrete
             _context.Topics.Remove(item);
             await _context.SaveChangesAsync();
         }
+
     }
 }

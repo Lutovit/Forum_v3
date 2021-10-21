@@ -38,6 +38,11 @@ namespace Forum_v1.Controllers
             return View(await _topicRepo.GetAllWithIncludeMessagesAsync());
         }
 
+        public async Task<IActionResult> FilterByLastMessageDate(DateTime dateOflastMessageFrom)
+        {
+            return View("Index", await _topicRepo.GetAllFromDateWithIncludeMessagesAsync(dateOflastMessageFrom));        
+        }
+
 
 
         [HttpGet]
