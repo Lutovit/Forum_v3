@@ -115,24 +115,17 @@ namespace Forum_v1.Controllers
         {
             if (ModelState.IsValid)
             {
-              IEnumerable<BanEmail> banEmails = await _banRepo.GetAllAsync();
+                ApplicationUser user = await _userManager.FindByEmailAsync(model.Email);
 
-                bool isbanned = false;
-
-                foreach (var item in banEmails)
+                if (user == null) 
                 {
-                    if (item.Email == model.Email)
-                    {
-                        isbanned = true;
-                    }
+                    return RedirectToAction("Login");
                 }
 
-
-                if (isbanned == true)
+                if (user.isBanned == true)
                 {
                     return RedirectToAction("YouhaveBan");
                 }
-
 
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
 
