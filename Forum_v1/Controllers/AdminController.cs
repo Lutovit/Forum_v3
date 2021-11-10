@@ -17,14 +17,17 @@ namespace Forum_v1.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IGenericRepository<BanEmail> _banRepo;  
-        
+        private readonly IGenericRepository<BanEmail> _banRepo;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager, IGenericRepository<BanEmail> banRepo)
+
+        public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,
+            IGenericRepository<BanEmail> banRepo, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
             _banRepo = banRepo;
+            _signInManager = signInManager;
         }
         
 
@@ -283,6 +286,9 @@ namespace Forum_v1.Controllers
                 }
 
                 user.isBanned = true;
+                // enables immediate logout, after updating the user's stat.
+                await _userManager.UpdateSecurityStampAsync(user);
+
                 await _userManager.UpdateAsync(user);
 
                 BanEmail banEmail = new BanEmail { Email = user.Email };

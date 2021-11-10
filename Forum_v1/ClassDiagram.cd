@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Forum_v1.Controllers.AccountController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAACAAABAAAIwAAEBAgAEAAAQAAAAAAA=</HashCode>
+      <FileName>Controllers\AccountController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Controllers.AdminController" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAIAAQAEEAAAAAQgAAAQIECHAAEAAEAAAAQ=</HashCode>
+      <FileName>Controllers\AdminController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Controllers.HomeController" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAIAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Controllers.ManageController" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAgAAAAABAAAAAAAAAAAAAgQEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ManageController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Controllers.RoleController" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAABBAIAKAAAAAAAAAACAAgAAAAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\RoleController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Controllers.TopicController" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAgAABAAAACACABCACAAAAAAgEAEACABAg=</HashCode>
+      <FileName>Controllers\TopicController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.HtmlHelpers.PagingHelpers" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HtmlHelpers\PagingHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.RegisterViewModel" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAAAAAAAAAAAAAAAAAACQAAAAAAAIAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.LoginViewModel" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAIAAAAgAAA=</HashCode>
+      <FileName>Models\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.AdminSettings" Collapsed="true">
+    <Position X="4" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Models\AdminSettings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.AdminEdit" Collapsed="true">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAIAAAAAAAAAAACAAAAAAAAAAAQAACAAAAAA=</HashCode>
+      <FileName>Models\AdminViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.AdminInfo" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAIAAAAAAAAAAAAAAAAAAAAAAAQAACAAAAAA=</HashCode>
+      <FileName>Models\AdminViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.ErrorViewModel" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ErrorViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.TopicCreateViewModel" Collapsed="true">
+    <Position X="5.75" Y="6.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAA=</HashCode>
+      <FileName>Models\ForumViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.MessageCreateViewModel" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAABQAAACAAAAAA=</HashCode>
+      <FileName>Models\ForumViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.MessageEditViewModel" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAACAAACAAIAAAAACAAAAAAAAUAAACAAAAAA=</HashCode>
+      <FileName>Models\ForumViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.EnterIntoTopicViewModel" Collapsed="true">
+    <Position X="5.75" Y="4.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Models\ForumViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.ManageIndexViewModel" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAAAAAQAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\ManageViewModeles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.ChangeRegisterDataViewModel" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAACAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\ManageViewModeles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.ChangePasswordViewModel" Collapsed="true">
+    <Position X="5.75" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\ManageViewModeles.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.PagingInfo" Collapsed="true">
+    <Position X="8.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAABAAQAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Models\PagingInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.CreateRoleModel" Collapsed="true">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RoleViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Models.EditRoleModel" Collapsed="true">
+    <Position X="4" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RoleViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Forum_v1.Services.AdminConfigService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\AdminConfigService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Forum_v1.Services.PaginationService" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAABAAAABA=</HashCode>
+      <FileName>Services\PaginationService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Forum_v1.Services.IAdminConfigService" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Services\IAdminConfigService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Forum_v1.Services.IPagination" Collapsed="true">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Services\IPagination.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
