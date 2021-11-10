@@ -11,12 +11,13 @@ namespace Repository.Absract
     {
         Task<IEnumerable<Topic>> GetAllAsync();
         Task<IEnumerable<Topic>> GetAllWithIncludeMessagesAsync();
+        Task<IEnumerable<Topic>> GetAllFromDateWithIncludeMessagesAsync(DateTime dateOflastMessageFrom);
 
 
         IEnumerable<Topic> Get(Func<Topic, bool> predicate);
 
 
-         Task<Topic> FindByIdAsync(int id);
+        Task<Topic> FindByIdAsync(int id);
         Task<Topic> FindByIdWithIncludeMessagesAsync(int id);
 
 

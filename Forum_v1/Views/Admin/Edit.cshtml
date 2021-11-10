@@ -64,8 +64,9 @@
 
                     <table class="table">
 
-                        @foreach (string st in Model.RoleList)
+                        @foreach (string st in Model.RoleList.Except(Model.UserRoleList))
                         {
+                            
                             <tr>
                                 <td align="center">@st</td>
 

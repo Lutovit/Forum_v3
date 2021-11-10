@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository.Entities;
 
 namespace Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211008195800_adding_avatars")]
+    partial class adding_avatars
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,14 +51,14 @@ namespace Repository.Migrations
                         new
                         {
                             Id = "ad376a8f-9eab-4bb9-9fca-30b01540f445",
-                            ConcurrencyStamp = "30d561ff-5350-4b43-a045-9f09c2ff3918",
+                            ConcurrencyStamp = "72d0a639-4d1a-46c7-bbef-edf7dc9f3e7e",
                             Name = "admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = "ad376a8f-9zxb-4bb9-9fca-30b01540f173",
-                            ConcurrencyStamp = "6bdd8c37-5a47-4c66-b4f6-738f67cec75f",
+                            ConcurrencyStamp = "d45c85c1-674c-499d-868a-88d2f6479b85",
                             Name = "user",
                             NormalizedName = "USER"
                         });
@@ -272,14 +274,14 @@ namespace Repository.Migrations
                             AccessFailedCount = 0,
                             ClientName = "Maxim Malakhov",
                             CompanyName = "MaxFunnyApps",
-                            ConcurrencyStamp = "f222406d-db5c-4ee0-b242-4ee8d4d998ce",
-                            DateOfRegistration = new DateTime(2021, 10, 18, 23, 55, 2, 617, DateTimeKind.Local).AddTicks(9713),
+                            ConcurrencyStamp = "ca4c010d-2486-4dc5-b3af-0fcf033601d8",
+                            DateOfRegistration = new DateTime(2021, 10, 8, 22, 57, 57, 977, DateTimeKind.Local).AddTicks(9228),
                             Email = "pilot_mig@bk.ru",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "PILOT_MIG@BK.RU",
                             NormalizedUserName = "PILOT_MIG@BK.RU",
-                            PasswordHash = "AQAAAAEAACcQAAAAEAqNhPBSNaQXW3DGE1xWnxytM+t03MdfmcH32+hvNVn6RVYLB/egdR1CmjEF95tF+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAENvaszQsfLf9DL7GfcgzhopjLiiXtzyYC1O+q8P/8ky40OWGP9WAsIZAR0208JL1GA==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -293,14 +295,14 @@ namespace Repository.Migrations
                             AccessFailedCount = 0,
                             ClientName = "Dima Ivanov",
                             CompanyName = "Dima Constractions",
-                            ConcurrencyStamp = "20abdb23-b162-4d73-927a-cc991de7655b",
-                            DateOfRegistration = new DateTime(2021, 10, 18, 23, 55, 2, 624, DateTimeKind.Local).AddTicks(540),
+                            ConcurrencyStamp = "a9723af9-c847-4340-97ea-11c9c0f6b0ed",
+                            DateOfRegistration = new DateTime(2021, 10, 8, 22, 57, 57, 999, DateTimeKind.Local).AddTicks(7726),
                             Email = "diman@bk.ru",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "DIMAN@BK.RU",
                             NormalizedUserName = "DIMAN@BK.RU",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFB3GnoQaN0sBBiTxLe3lKTMwPsLUFfev0BmNU7mR4/rpSOEpfja4s5m9u4Ax3FiWQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAnfx2pLa9aTD2kD1Fw3wd8ZzZBhemUR6Qmj7Y6CRImFVF7NxoWXKJusq5ACOjjbLg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -314,14 +316,14 @@ namespace Repository.Migrations
                             AccessFailedCount = 0,
                             ClientName = "Sergei Butovo",
                             CompanyName = "Sergio Vine Company",
-                            ConcurrencyStamp = "13140f77-363a-4626-9d2b-39d0dbab4799",
-                            DateOfRegistration = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(328),
+                            ConcurrencyStamp = "4d0e807d-9ede-4d8b-810f-3f79723c656e",
+                            DateOfRegistration = new DateTime(2021, 10, 8, 22, 57, 58, 21, DateTimeKind.Local).AddTicks(4916),
                             Email = "sergio@bk.ru",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "SERGIO@BK.RU",
                             NormalizedUserName = "SERGIO@BK.RU",
-                            PasswordHash = "AQAAAAEAACcQAAAAELyF3pu9Tiz1lst/jbMnBaK1FpXw6STYWdeFxGPGOaUg0BltLP5y5lxZ1NI0RqaDsQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELqdayseOoTKIHdVwwCsdG4X0wnaUhzmLK0c/PM1XJg2f4mJjVtR4gwViHa1pfSFFg==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -397,8 +399,8 @@ namespace Repository.Migrations
                         {
                             Id = 1,
                             ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(4376),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(4627),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(6182),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(6199),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 1,
                             UserName = "pilot_mig@bk.ru",
@@ -409,8 +411,8 @@ namespace Repository.Migrations
                         {
                             Id = 2,
                             ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5756),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5760),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(7839),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(7842),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 1,
                             UserName = "pilot_mig@bk.ru",
@@ -421,8 +423,8 @@ namespace Repository.Migrations
                         {
                             Id = 3,
                             ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5762),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5763),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(7854),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(7857),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 1,
                             UserName = "pilot_mig@bk.ru",
@@ -433,8 +435,8 @@ namespace Repository.Migrations
                         {
                             Id = 4,
                             ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5955),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5958),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8450),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8453),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 2,
                             UserName = "diman@bk.ru",
@@ -445,8 +447,8 @@ namespace Repository.Migrations
                         {
                             Id = 5,
                             ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5960),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5961),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8465),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8469),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 2,
                             UserName = "diman@bk.ru",
@@ -457,8 +459,8 @@ namespace Repository.Migrations
                         {
                             Id = 6,
                             ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5962),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5963),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8480),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8483),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 2,
                             UserName = "diman@bk.ru",
@@ -469,8 +471,8 @@ namespace Repository.Migrations
                         {
                             Id = 7,
                             ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5993),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5994),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8585),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8588),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 3,
                             UserName = "sergio@bk.ru",
@@ -481,8 +483,8 @@ namespace Repository.Migrations
                         {
                             Id = 8,
                             ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5996),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5997),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8600),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8603),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 3,
                             UserName = "sergio@bk.ru",
@@ -493,8 +495,8 @@ namespace Repository.Migrations
                         {
                             Id = 9,
                             ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5998),
-                            DateOfLastEdit = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(5999),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8614),
+                            DateOfLastEdit = new DateTime(2021, 10, 8, 22, 57, 58, 23, DateTimeKind.Local).AddTicks(8617),
                             Text = "Vivendum dignissim conceptam pri ut, ei vel partem audiam sapientem. Mandamus abhorreant deseruisse mea at, mea elit deserunt persequeris at, in putant fuisset honestatis qui.",
                             TopicId = 3,
                             UserName = "sergio@bk.ru",
@@ -514,9 +516,6 @@ namespace Repository.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateOfLastMessage")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TopicDescription")
@@ -542,8 +541,7 @@ namespace Repository.Migrations
                         {
                             Id = 1,
                             ApplicationUserId = "a18be9c0-aa65-4af8-bd17-00bd9344e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(1913),
-                            DateOfLastMessage = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 22, DateTimeKind.Local).AddTicks(4657),
                             TopicDescription = "Discussing star ships, their engines and something like this.",
                             TopicName = "Star ships, interstellars comunications, gelium atomic engines.",
                             isDelited = false,
@@ -553,8 +551,7 @@ namespace Repository.Migrations
                         {
                             Id = 2,
                             ApplicationUserId = "a17be9c0-aa65-4af8-bd17-00bd9443e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(3269),
-                            DateOfLastMessage = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 22, DateTimeKind.Local).AddTicks(7125),
                             TopicDescription = "Discussing we spend time during interstellar voyages.",
                             TopicName = "Vine and sigaretes while you are in deep space.",
                             isDelited = false,
@@ -564,8 +561,7 @@ namespace Repository.Migrations
                         {
                             Id = 3,
                             ApplicationUserId = "a16ce9c0-aa65-4af8-bd17-00bd7213e575",
-                            Date = new DateTime(2021, 10, 18, 23, 55, 2, 630, DateTimeKind.Local).AddTicks(3274),
-                            DateOfLastMessage = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2021, 10, 8, 22, 57, 58, 22, DateTimeKind.Local).AddTicks(7137),
                             TopicDescription = "How we do sport, while we are in space.",
                             TopicName = "Sports in space.",
                             isDelited = false,

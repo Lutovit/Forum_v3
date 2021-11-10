@@ -97,3 +97,28 @@ textarea {
 }
 
 
+@media(max-width:990px) {
+    .hideMobile {
+        display: none;
+    }
+}
+
+@media(max-width:990px) {
+    .showMobile {
+        display: block;
+    }
+}
+
+
+@media(min-width:991px) {
+    .hideDeskTop {
+        display: none;
+    }
+}
+
+
+@media(min-width:991px) {
+    .showDeskTop {
+        display: block;
+    }
+}
