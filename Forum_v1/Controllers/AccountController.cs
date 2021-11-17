@@ -14,11 +14,11 @@ namespace Forum_v1.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IGenericRepository<BanEmail> _banRepo;
+        private readonly IBanRepository _banRepo;
 
 
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
-            RoleManager<IdentityRole> roleManager, IGenericRepository<BanEmail> banRepo)
+            RoleManager<IdentityRole> roleManager, IBanRepository banRepo)
         {
             _userManager = userManager;
             _signInManager = signInManager;

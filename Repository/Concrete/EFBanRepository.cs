@@ -4,12 +4,11 @@ using Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Concrete
 {
-    class EFBanRepository : IBanRepository
+    public class EFBanRepository : IBanRepository
     {
         ApplicationDbContext _context;
 
@@ -26,42 +25,43 @@ namespace Repository.Concrete
         }
 
 
-        public IEnumerable<Message> GetWhere(Func<Message, bool> predicate)
+        IEnumerable<BanEmail> IBanRepository.GetWhere(Func<BanEmail, bool> predicate)
         {
             return _context.BanEmails.Where(predicate).ToList();
         }
 
 
-        public async Task<Message> FindByIdAsync(int id)
+        public async Task<BanEmail> FindByIdAsync(int id)
         {
             return await _context.BanEmails.FirstOrDefaultAsync(c => c.Id == id);
         }
 
 
-        public async Task<Message> FindByIdWithIncludeUserAsync(int id)
+        public async Task<BanEmail> FindByEmailAsync(string email)
         {
-            return await _context.BanEmails.Include(m => m.User).FirstOrDefaultAsync(c => c.Id == id);
+            return await _context.BanEmails.FirstOrDefaultAsync(c => c.Email == email);
         }
 
 
-        public async Task CreateAsync(Message item)
+        public async Task CreateAsync(BanEmail item)
         {
             _context.BanEmails.Add(item);
             await _context.SaveChangesAsync();
         }
 
 
-        public async Task UpdateAsync(Message item)
+        public async Task UpdateAsync(BanEmail item)
         {
             _context.Entry(item).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
 
-        public async Task RemoveAsync(Message item)
+        public async Task RemoveAsync(BanEmail item)
         {
             _context.BanEmails.Remove(item);
             await _context.SaveChangesAsync();
         }
+
     }
 }

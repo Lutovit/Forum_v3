@@ -14,12 +14,12 @@ namespace Forum_v1.Controllers
     {
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly IGenericRepository<BanEmail> _banRepo;
+        private readonly IBanRepository _banRepo;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
 
         public AdminController(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager,
-            IGenericRepository<BanEmail> banRepo, SignInManager<ApplicationUser> signInManager)
+            IBanRepository banRepo, SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -332,10 +332,8 @@ namespace Forum_v1.Controllers
                 user.isBanned = false;
                 await _userManager.UpdateAsync(user);
             }
-   
-            IEnumerable<BanEmail> banEmailList = await _banRepo.GetAllAsync();
 
-            BanEmail banEmail = banEmailList.FirstOrDefault(c => c.Email == email);
+            BanEmail banEmail = await _banRepo.FindByEmailAsync(user.Email);
 
             if (banEmail != null)
             {

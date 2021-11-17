@@ -3,9 +3,6 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository.Entities
 {
@@ -123,7 +120,7 @@ namespace Repository.Entities
 
         public DbSet<Topic> Topics { set; get; }
 
-        public DbSet<Message> BanEmails { set; get; }
+        public DbSet<Message> Messages { set; get; }
 
 
 

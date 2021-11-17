@@ -50,7 +50,7 @@ namespace Forum_v1
             });
 
 
-            services.AddScoped<IGenericRepository<BanEmail>, EFGenericRepository<BanEmail>>();
+            services.AddScoped<IBanRepository, EFBanRepository>();
             services.AddScoped<IMessageRepository, EFMessageRepository>();
             services.AddScoped<ITopicRepository, EFTopicRepository>();
 

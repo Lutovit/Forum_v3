@@ -1,12 +1,26 @@
-﻿using System;
+﻿using Repository.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Absract
 {
-    class IBanRepository
+    public interface IBanRepository
     {
+        Task<IEnumerable<BanEmail>> GetAllAsync();
+
+        IEnumerable<BanEmail> GetWhere(Func<BanEmail, bool> predicate);
+
+
+        Task<BanEmail> FindByIdAsync(int id);
+
+        Task<BanEmail> FindByEmailAsync(string email);
+
+
+        Task CreateAsync(BanEmail item);
+
+        Task UpdateAsync(BanEmail item);
+
+        Task RemoveAsync(BanEmail item);
     }
 }

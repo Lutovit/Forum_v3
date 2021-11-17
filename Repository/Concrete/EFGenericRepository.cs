@@ -4,7 +4,6 @@ using Repository.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Concrete
@@ -37,7 +36,6 @@ namespace Repository.Concrete
         {
             return await  _dbSet.FindAsync(id);
         }
-
 
 
         public async Task CreateAsync(TEntity item)

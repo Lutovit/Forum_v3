@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repository.Absract
@@ -10,7 +8,7 @@ namespace Repository.Absract
     {
         Task CreateAsync(TEntity item);
 
-        Task<TEntity> FindByIdAsync(int id);     
+        Task<TEntity> FindByIdAsync(int id);
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 
