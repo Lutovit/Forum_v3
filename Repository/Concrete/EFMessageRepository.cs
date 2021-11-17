@@ -20,7 +20,6 @@ namespace Repository.Concrete
         }
 
 
-
         public async Task<IEnumerable<Message>> GetAllAsync()
         {
             return await _context.Messages.ToListAsync();
