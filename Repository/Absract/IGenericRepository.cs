@@ -10,7 +10,7 @@ namespace Repository.Absract
     {
         Task CreateAsync(TEntity item);
 
-         Task<TEntity> FindByIdAsync(int id);
+        Task<TEntity> FindByIdAsync(int id);     
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 

@@ -75,7 +75,7 @@ namespace Forum_v1.Controllers
 
             if (user == null)
             {
-                ModelState.AddModelError("", "Что-то пошло не так");
+                ModelState.AddModelError("", "Cant find user!");
                 return RedirectToAction("Index");
             }
 
@@ -111,7 +111,7 @@ namespace Forum_v1.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Что-то пошло не так");
+                ModelState.AddModelError("", "Cant add role to user!");
             }
 
             return RedirectToAction("Index");
@@ -131,7 +131,7 @@ namespace Forum_v1.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Что-то пошло не так");
+                ModelState.AddModelError("", "Cant delete role from user!");
             }
 
             return RedirectToAction("Index");
@@ -161,20 +161,13 @@ namespace Forum_v1.Controllers
                 {
                     return RedirectToAction("AdminSelfDelete", "Account");
                 }
-                
 
-                user = await _userManager.FindByIdAsync(Id);
+                IdentityResult result = await _userManager.DeleteAsync(user);
 
-                if (user != null)
+                if (result.Succeeded)
                 {
-                    IdentityResult result = await _userManager.DeleteAsync(user);
-
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Index", "Admin");
-                    }
+                    return RedirectToAction("Index", "Admin");
                 }
-
 
             }
             return RedirectToAction("CantDeleteUser", new { name = user.Email });
@@ -342,9 +335,9 @@ namespace Forum_v1.Controllers
                 user.isBanned = false;
                 await _userManager.UpdateAsync(user);
             }
-
-            //BanEmail banEmail = await db.BanEmails.FirstOrDefaultAsync(c => c.Email == email);
+   
             IEnumerable<BanEmail> banEmailList = await _banRepo.GetAllAsync();
+
             BanEmail banEmail = banEmailList.FirstOrDefault(c => c.Email == email);
 
             if (banEmail != null)
