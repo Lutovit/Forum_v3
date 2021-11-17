@@ -9,47 +9,39 @@ using System.Threading.Tasks;
 
 namespace Repository.Concrete
 {
-    public class EFMessageRepository : IMessageRepository
+    class EFBanRepository : IBanRepository
     {
         ApplicationDbContext _context;
 
 
-        public EFMessageRepository(ApplicationDbContext context)
+        public EFBanRepository(ApplicationDbContext context)
         {
             _context = context;
         }
 
 
-
-        public async Task<IEnumerable<Message>> GetAllAsync()
+        public async Task<IEnumerable<BanEmail>> GetAllAsync()
         {
             return await _context.BanEmails.ToListAsync();
         }
 
-        public async Task<IEnumerable<Message>> GetAllWithIncludeUserAsync()
-        {
-            return await _context.BanEmails.Include(m=>m.User).ToListAsync();
-        }
 
-
-
-        public IEnumerable<Message> Get(Func<Message, bool> predicate)
+        public IEnumerable<Message> GetWhere(Func<Message, bool> predicate)
         {
             return _context.BanEmails.Where(predicate).ToList();
         }
 
 
-
         public async Task<Message> FindByIdAsync(int id)
         {
-            return await _context.BanEmails.FirstOrDefaultAsync(c => c.Id == id);        
+            return await _context.BanEmails.FirstOrDefaultAsync(c => c.Id == id);
         }
+
 
         public async Task<Message> FindByIdWithIncludeUserAsync(int id)
         {
-            return await _context.BanEmails.Include(m => m.User).FirstOrDefaultAsync(c=>c.Id==id);
+            return await _context.BanEmails.Include(m => m.User).FirstOrDefaultAsync(c => c.Id == id);
         }
-
 
 
         public async Task CreateAsync(Message item)

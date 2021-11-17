@@ -123,7 +123,7 @@ namespace Repository.Entities
 
         public DbSet<Topic> Topics { set; get; }
 
-        public DbSet<Message> Messages { set; get; }
+        public DbSet<Message> BanEmails { set; get; }
 
 
 

@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Forum_v1.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Entities;
 using Repository.Absract;
-using Repository.Concrete ;
 
 
 namespace Forum_v1.Controllers
@@ -60,16 +55,6 @@ namespace Forum_v1.Controllers
 
         }
         
-
-
-        /*
-        public IActionResult Register() 
-        {
-            return View();
-        }
-        */
-
-
 
 
         [HttpPost]

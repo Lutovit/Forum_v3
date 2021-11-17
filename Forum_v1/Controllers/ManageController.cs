@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using System.Threading.Tasks;
 using Forum_v1.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -176,14 +173,6 @@ namespace Forum_v1.Controllers
 
             if (result.Succeeded)
             {
-                /*
-                var user = await _userManager.FindByNameAsync(User.Identity.Name);
-
-                if (user != null)
-                {
-                    await _signInManager.SignInAsync(user, isPersistent: false, authenticationMethod: null );
-                }
-                */
 
                 await _signInManager.SignOutAsync();
 
