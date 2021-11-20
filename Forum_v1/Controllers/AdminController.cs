@@ -175,7 +175,51 @@ namespace Forum_v1.Controllers
 
 
         [Authorize(Roles = "admin")]
+        [HttpGet]
+        public ActionResult RecoverUser()
+        {
+            return View();
+        }
+
+
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public async Task<ActionResult> RecoverUser(string Id)
+        {
+
+            ApplicationUser user = await _userManager.FindByIdAsync(Id);
+
+            if (user != null)
+            {
+
+                user.isDelited = false;
+
+                await _userManager.UpdateSecurityStampAsync(user);
+
+                await _userManager.UpdateAsync(user);
+
+                return RedirectToAction("Index", "Admin");
+
+            }
+            return RedirectToAction("CantRecoverUser", new { name = user.Email });
+
+        }
+
+
+
+
+        [Authorize(Roles = "admin")]
         public string CantDeleteUser(string name)
+        {
+            return "Не могу удалить пользователя:  " + name + "  Что-то пошло не так!";
+        }
+
+
+
+
+        [Authorize(Roles = "admin")]
+        public string CantRecoverUser(string name)
         {
             return "Не могу удалить пользователя:  " + name + "  Что-то пошло не так!";
         }

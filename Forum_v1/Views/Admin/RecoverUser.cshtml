@@ -1,0 +1,23 @@
+﻿
+@model Repository.Entities.ApplicationUser
+
+<h3 class="my-3">Восстановить аккаунт пользователя?</h3>
+
+<div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+
+            <button type="submit" class="btn btn-success my-3">Восстановить аккаунт.</button>
+
+        </div>
+    }
+
+</div>
+
+<div>
+    <a href="/Admin/Index" class="btn btn-dark">Вернуться в панель администратора.</a>
+</div>

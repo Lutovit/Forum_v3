@@ -128,7 +128,17 @@
 
                         @Html.ActionLink("Edit", "Edit", "Admin", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-warning mx-2 my-2", style = "color:white" })
                         @Html.ActionLink("Info", "Info", "Admin", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-info mx-2 my-2", style = "color:white" })
-                        @Html.ActionLink("Delete", "DeleteUser", "Admin", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger mx-2 my-2", style = "color:white" })
+
+                        @if (item.isDelited)
+                        {
+                            @Html.ActionLink("Recover", "RecoverUser", "Admin", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-success mx-2 my-2", style = "color:white" })
+                        }
+
+                        @if(!item.isDelited)
+                        {
+                            @Html.ActionLink("Delete", "DeleteUser", "Admin", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger mx-2 my-2", style = "color:white" })
+                        }
+
                         @Html.ActionLink("Ban", "BanUser", "Admin", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary mx-2 my-2", style = "color:white" })
                     </div>
 
