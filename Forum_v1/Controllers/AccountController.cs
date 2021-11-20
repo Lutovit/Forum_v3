@@ -104,7 +104,13 @@ namespace Forum_v1.Controllers
 
                 if (user == null) 
                 {
-                    return RedirectToAction("Login");
+                    ModelState.AddModelError("", "There is no account with such Email!");
+                    return View(model);
+                }
+
+                if (user.isDelited == true)
+                {
+                    return RedirectToAction("DeletedAccount");
                 }
 
                 if (user.isBanned == true)
@@ -173,15 +179,25 @@ namespace Forum_v1.Controllers
 
             if (user != null)
             {
-                IdentityResult result = await _userManager.DeleteAsync(user);
-                await _signInManager.SignOutAsync();
+                user.isDelited = true;
+                await _userManager.UpdateAsync(user);
+                await _signInManager.SignOutAsync();                
             }
             return RedirectToAction("Index", "Home");
         }
 
 
+
         [AllowAnonymous]
         public ActionResult YouhaveBan()
+        {
+            return View();
+        }
+
+
+
+        [AllowAnonymous]
+        public ActionResult DeletedAccount()
         {
             return View();
         }

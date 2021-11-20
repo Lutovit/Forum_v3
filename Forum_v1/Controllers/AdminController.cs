@@ -153,18 +153,19 @@ namespace Forum_v1.Controllers
 
             if (user != null)
             {
-                //если удаляемый пользователь - админ удаляет сам себя, то вызывается метод AdminSelfDelete() контролера Account
-                if (user.Email == User.Identity.Name)
+               
+                if (await _userManager.IsInRoleAsync(user, "admin"))
                 {
-                    return RedirectToAction("AdminSelfDelete", "Account");
+                    return RedirectToAction("AdminSelfDelete");
                 }
 
-                IdentityResult result = await _userManager.DeleteAsync(user);
+                user.isDelited = true;
 
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Index", "Admin");
-                }
+                await _userManager.UpdateSecurityStampAsync(user);
+
+                await _userManager.UpdateAsync(user);
+
+                return RedirectToAction("Index", "Admin");
 
             }
             return RedirectToAction("CantDeleteUser", new { name = user.Email });
@@ -276,6 +277,7 @@ namespace Forum_v1.Controllers
                 }
 
                 user.isBanned = true;
+
                 // enables immediate logout, after updating the user's stat.
                 await _userManager.UpdateSecurityStampAsync(user);
 
@@ -308,6 +310,12 @@ namespace Forum_v1.Controllers
         }
 
 
+
+        [Authorize(Roles = "admin")]
+        public IActionResult AdminSelfDelete()
+        {
+            return View();
+        }
 
 
 

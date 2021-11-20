@@ -21,6 +21,11 @@
 
                     Имя: @Html.DisplayFor(modelItem => item.User.ClientName)
 
+                    @if (item.User.isDelited == true) 
+                    {
+                        <p style="color:palevioletred">User's account is deleted.</p>                   
+                    }
+
                 </p>
 
                 @if (item.isEdited)
