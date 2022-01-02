@@ -5,7 +5,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Entities;
 using Repository.Absract;
-
+using Microsoft.AspNetCore.Authentication;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Forum_v1.Controllers
 {
@@ -15,6 +17,9 @@ namespace Forum_v1.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IBanRepository _banRepo;
+
+        
+       
 
 
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager,
@@ -87,9 +92,13 @@ namespace Forum_v1.Controllers
 
 
         [HttpGet]
-        public IActionResult Login(string returnUrl = null)
+        public async Task<IActionResult> Login(string returnUrl = null)
         {
-            return View(new LoginViewModel { ReturnUrl = returnUrl });
+            // Clear the existing external cookie to ensure a clean login process
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+            IList<AuthenticationScheme> externalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();        
+
+            return View(new LoginViewModel { ReturnUrl = returnUrl, ExternalLogins = externalLogins });
         }
 
 
