@@ -37,7 +37,6 @@ namespace Forum_v1.Models
     }
 
 
-
     public class LoginViewModel
     {
         [Required]
@@ -56,6 +55,18 @@ namespace Forum_v1.Models
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
+    }
+
+
+    public class ExternalLoginConfirmationViewModel
+    {
+        [Required]
+        [Display(Name = "Адрес электронной почты")]
+        public string Email { get; set; }
+
+        public string ProviderDisplayName { set; get; }
+
+        public string ReturnUrl { get; set; }
     }
 
 }
