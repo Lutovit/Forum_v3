@@ -30,6 +30,9 @@
             <button type="submit" class="btn btn-primary">Register</button>
         }
 
+        @Html.ActionLink("Cancel", "CancelConfirmation", "Account", new { returnUrl = Model.ReturnUrl }, 
+       htmlAttributes: new { @class = "btn btn-warning mx-2 my-2", style = "color:white" })
+
     </div>
 </div>
 

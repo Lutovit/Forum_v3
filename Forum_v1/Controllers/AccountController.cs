@@ -99,6 +99,7 @@ namespace Forum_v1.Controllers
         {
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
+            
             IList<AuthenticationScheme> externalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();        
 
             return View(new LoginViewModel { ReturnUrl = returnUrl, ExternalLogins = externalLogins });
@@ -113,11 +114,11 @@ namespace Forum_v1.Controllers
             // Request a redirect to the external login provider.
             var redirectUrl = Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
             var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
-            return new ChallengeResult(provider, properties);
+            return new ChallengeResult(provider, properties);            
         }
 
 
-        
+
         [AllowAnonymous]
         public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
         {
@@ -129,7 +130,7 @@ namespace Forum_v1.Controllers
                 return RedirectToAction("Login", new { ReturnUrl = returnUrl });
             }
 
-            var info = await _signInManager.GetExternalLoginInfoAsync();
+            var info = await _signInManager.GetExternalLoginInfoAsync();            
 
             if (info == null)
             {                
@@ -227,6 +228,14 @@ namespace Forum_v1.Controllers
                 }
             }
 
+            return RedirectToAction("Login", new { ReturnUrl = returnUrl });
+        }
+
+
+        public async Task<IActionResult> CancelConfirmation(string returnUrl = null)
+        {
+            // Clear the existing external cookie to ensure a clean login process
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
             return RedirectToAction("Login", new { ReturnUrl = returnUrl });
         }
 
